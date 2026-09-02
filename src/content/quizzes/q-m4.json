@@ -1,0 +1,88 @@
+{
+  "id": "q-m4",
+  "title": "Module 4 Check · Safety & Emergencies",
+  "passScore": 90,
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "m4-1",
+      "type": "single",
+      "sopId": "incident-reporting",
+      "prompt": "A guest slips on a wet floor but says they are fine. What is required?",
+      "choices": [
+        "Nothing, since there was no injury",
+        "Notify the Duty Manager immediately and file an Incident Report the same shift",
+        "Note it in the handover and file a report tomorrow",
+        "Offer compensation and move on"
+      ],
+      "answer": [1],
+      "explanation": "Incident Reporting → Any injury, however minor, is an incident; injuries are reported immediately."
+    },
+    {
+      "id": "m4-2",
+      "type": "boolean",
+      "sopId": "incident-reporting",
+      "prompt": "A near miss with no injury or damage still requires an Incident Report.",
+      "answer": [0],
+      "explanation": "Incident Reporting → What counts as an incident: near misses are included."
+    },
+    {
+      "id": "m4-3",
+      "type": "single",
+      "sopId": "incident-reporting",
+      "prompt": "When documenting an incident you should:",
+      "choices": [
+        "Record facts only — who, what, where, when, witnesses",
+        "Record your opinion on who was at fault",
+        "Offer compensation so the guest doesn't complain",
+        "Wait until the Duty Manager arrives before writing anything"
+      ],
+      "answer": [0],
+      "explanation": "Incident Reporting → Steps 3 and 5."
+    },
+    {
+      "id": "m4-4",
+      "type": "single",
+      "sopId": "emergency-procedures",
+      "prompt": "The fire alarm sounds and you cannot reach the Duty Manager. After how long do you call 911 yourself?",
+      "choices": ["Immediately", "1 minute", "5 minutes", "Only when you see smoke"],
+      "answer": [1],
+      "explanation": "Emergency Procedures → Fire alarm, step 2."
+    },
+    {
+      "id": "m4-5",
+      "type": "single",
+      "sopId": "emergency-procedures",
+      "prompt": "What must you take with you to the assembly point during a fire evacuation?",
+      "choices": ["The cash drawer", "The arrivals/in-house list", "The key card programmer", "Your personal belongings"],
+      "answer": [1],
+      "explanation": "Emergency Procedures → Fire alarm, step 3 — used to account for guests."
+    },
+    {
+      "id": "m4-6",
+      "type": "single",
+      "sopId": "emergency-procedures",
+      "prompt": "A guest collapses and is not breathing. Your first call is to:",
+      "choices": ["The Duty Manager", "911", "The hotel doctor", "The guest's emergency contact"],
+      "answer": [1],
+      "explanation": "Emergency Procedures → Medical emergency, step 1."
+    },
+    {
+      "id": "m4-7",
+      "type": "boolean",
+      "sopId": "emergency-procedures",
+      "prompt": "During a fire evacuation, guests on upper floors should be directed to the elevators to speed up the exit.",
+      "answer": [1],
+      "explanation": "Emergency Procedures → Fire alarm, step 4: never to elevators."
+    },
+    {
+      "id": "m4-8",
+      "type": "single",
+      "sopId": "emergency-procedures",
+      "prompt": "During a power outage, what should you check first?",
+      "choices": ["The Wi-Fi router", "That emergency lighting came on, then elevators for trapped guests", "The kitchen freezers", "The parking gate"],
+      "answer": [1],
+      "explanation": "Emergency Procedures → Power outage, steps 1–2."
+    }
+  ]
+}

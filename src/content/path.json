@@ -1,0 +1,38 @@
+{
+  "id": "hospitality-coordinator",
+  "role": "Hospitality Coordinator",
+  "title": "Hospitality Coordinator Onboarding",
+  "description": "Everything a new Hospitality Coordinator needs to know, in the order you need to know it. Read each SOP, then pass the module check to unlock the next module.",
+  "defaultPassScore": 80,
+  "completeInOrder": true,
+  "modules": [
+    {
+      "id": "m1-foundations",
+      "title": "Module 1 · Role & Foundations",
+      "description": "What the job is, who you work with, and how we communicate.",
+      "sops": ["role-overview", "communication-standards"],
+      "quiz": "q-m1"
+    },
+    {
+      "id": "m2-arrival",
+      "title": "Module 2 · Guest Arrival & Check-in",
+      "description": "The arrival experience from pre-arrival prep to handing over the key.",
+      "sops": ["guest-arrival", "room-readiness"],
+      "quiz": "q-m2"
+    },
+    {
+      "id": "m3-requests",
+      "title": "Module 3 · Requests, Issues & Recovery",
+      "description": "Handling day-to-day requests and turning complaints into loyalty.",
+      "sops": ["guest-requests", "complaint-handling"],
+      "quiz": "q-m3"
+    },
+    {
+      "id": "m4-safety",
+      "title": "Module 4 · Safety & Emergencies",
+      "description": "Incident reporting and what to do when something goes wrong.",
+      "sops": ["incident-reporting", "emergency-procedures"],
+      "quiz": "q-m4"
+    }
+  ]
+}

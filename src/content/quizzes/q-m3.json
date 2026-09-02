@@ -1,0 +1,80 @@
+{
+  "id": "q-m3",
+  "title": "Module 3 Check · Requests, Issues & Recovery",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "m3-1",
+      "type": "single",
+      "sopId": "guest-requests",
+      "prompt": "A guest asks for extra towels. What is the service-level target?",
+      "choices": ["5 minutes", "15 minutes", "30 minutes", "1 hour"],
+      "answer": [1],
+      "explanation": "Handling Guest Requests → Service-level targets."
+    },
+    {
+      "id": "m3-2",
+      "type": "single",
+      "sopId": "guest-requests",
+      "prompt": "Up to what time can you approve a late checkout on your own?",
+      "choices": ["12:00 PM", "1:00 PM", "2:00 PM", "Any time, with a fee"],
+      "answer": [1],
+      "explanation": "Handling Guest Requests → What you can approve on your own."
+    },
+    {
+      "id": "m3-3",
+      "type": "single",
+      "sopId": "guest-requests",
+      "prompt": "A ticket with a 30-minute target has been open for 60 minutes. You should:",
+      "choices": [
+        "Wait for the guest to follow up",
+        "Personally update the guest with a revised ETA",
+        "Close the ticket and open a new one",
+        "Escalate to the Duty Manager"
+      ],
+      "answer": [1],
+      "explanation": "Handling Guest Requests → Follow-up rule: at double the target time, update the guest."
+    },
+    {
+      "id": "m3-4",
+      "type": "boolean",
+      "sopId": "guest-requests",
+      "prompt": "Small requests you can handle immediately do not need a ticket.",
+      "answer": [1],
+      "explanation": "Handling Guest Requests → Purpose: every request is logged."
+    },
+    {
+      "id": "m3-5",
+      "type": "single",
+      "sopId": "complaint-handling",
+      "prompt": "In the LEARN method, what does the 'A' stand for?",
+      "choices": ["Ask", "Acknowledge", "Apologize", "Act"],
+      "answer": [2],
+      "explanation": "Complaint Handling → The LEARN method."
+    },
+    {
+      "id": "m3-6",
+      "type": "multi",
+      "sopId": "complaint-handling",
+      "prompt": "Which situations must be escalated to the Duty Manager? (Select all that apply)",
+      "choices": [
+        "Guest asks for a refund",
+        "Guest wants extra pillows",
+        "Guest complains a second time during the stay",
+        "Complaint involves harassment",
+        "Guest asks for late checkout to 1:00 PM"
+      ],
+      "answer": [0, 2, 3],
+      "explanation": "Complaint Handling → Escalate to the Duty Manager when."
+    },
+    {
+      "id": "m3-7",
+      "type": "single",
+      "sopId": "complaint-handling",
+      "prompt": "Which of these can you offer as service recovery without approval?",
+      "choices": ["A $40 dinner credit", "A room upgrade to a suite", "A complimentary item under $20", "A one-night refund"],
+      "answer": [2],
+      "explanation": "Complaint Handling → Recovery options you can offer without approval."
+    }
+  ]
+}

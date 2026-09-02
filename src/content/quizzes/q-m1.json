@@ -1,0 +1,74 @@
+{
+  "id": "q-m1",
+  "title": "Module 1 Check · Role & Foundations",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "m1-1",
+      "type": "single",
+      "sopId": "role-overview",
+      "prompt": "Within how many seconds should you greet a guest who enters your area?",
+      "choices": ["5 seconds", "10 seconds", "30 seconds", "1 minute"],
+      "answer": [1],
+      "explanation": "Role Overview → Key standards: greet every guest within 10 seconds."
+    },
+    {
+      "id": "m1-2",
+      "type": "single",
+      "sopId": "role-overview",
+      "prompt": "Above what amount does a compensation require Duty Manager approval?",
+      "choices": ["$20", "$50", "$100", "Any amount"],
+      "answer": [1],
+      "explanation": "Role Overview → Key standards: never promise compensation over $50 without approval."
+    },
+    {
+      "id": "m1-3",
+      "type": "multi",
+      "sopId": "role-overview",
+      "prompt": "Which of these are part of the end-of-shift routine? (Select all that apply)",
+      "choices": ["Write handover notes", "Walk the lobby", "Close or reassign every open task", "File any incident reports", "Pull the arrivals list"],
+      "answer": [0, 2, 3],
+      "explanation": "Role Overview → Shift structure. Walking the lobby and pulling arrivals are start-of-shift tasks."
+    },
+    {
+      "id": "m1-4",
+      "type": "boolean",
+      "sopId": "communication-standards",
+      "prompt": "You may confirm a guest's room number to a caller who says they are the guest's spouse.",
+      "answer": [1],
+      "explanation": "Communication Standards → Confidentiality: never confirm a room number to anyone but the registered guest."
+    },
+    {
+      "id": "m1-5",
+      "type": "single",
+      "sopId": "communication-standards",
+      "prompt": "What is the maximum time a guest should be left on hold without checking back?",
+      "choices": ["30 seconds", "60 seconds", "2 minutes", "As long as needed"],
+      "answer": [1],
+      "explanation": "Communication Standards → On the phone: check back within 60 seconds."
+    },
+    {
+      "id": "m1-6",
+      "type": "single",
+      "sopId": "communication-standards",
+      "prompt": "The 10/5 rule means:",
+      "choices": [
+        "Answer the phone within 10 seconds, reply to email within 5 minutes",
+        "Make eye contact at 10 feet, greet verbally at 5 feet",
+        "10 guests per coordinator, 5 per shift lead",
+        "Reply to messages within 10 minutes, calls within 5"
+      ],
+      "answer": [1],
+      "explanation": "Communication Standards → In person."
+    },
+    {
+      "id": "m1-7",
+      "type": "single",
+      "sopId": "communication-standards",
+      "prompt": "Guest messages received during your shift should be answered within:",
+      "choices": ["5 minutes", "15 minutes", "1 hour", "By end of shift"],
+      "answer": [1],
+      "explanation": "Communication Standards → In writing: reply within 15 minutes."
+    }
+  ]
+}

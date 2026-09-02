@@ -1,0 +1,79 @@
+{
+  "id": "q-m2",
+  "title": "Module 2 Check · Guest Arrival & Check-in",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "m2-1",
+      "type": "boolean",
+      "sopId": "guest-arrival",
+      "prompt": "Returning guests you recognize do not need to show photo ID at check-in.",
+      "answer": [1],
+      "explanation": "Guest Arrival → Common mistakes: the ID check is required every time."
+    },
+    {
+      "id": "m2-2",
+      "type": "single",
+      "sopId": "guest-arrival",
+      "prompt": "How should the room number be communicated to the guest?",
+      "choices": ["Spoken clearly so they remember it", "Written in the key packet, not spoken aloud", "Texted to their phone", "Printed on the receipt only"],
+      "answer": [1],
+      "explanation": "Guest Arrival → When the guest arrives, step 6."
+    },
+    {
+      "id": "m2-3",
+      "type": "single",
+      "sopId": "guest-arrival",
+      "prompt": "A guest's room is not ready and the wait will be about an hour. What must you do?",
+      "choices": [
+        "Offer a drink voucher and ask them to wait",
+        "Offer a drink voucher, store luggage, and notify the Duty Manager because the wait exceeds 45 minutes",
+        "Give them a different room in any category",
+        "Ask them to come back later"
+      ],
+      "answer": [1],
+      "explanation": "Guest Arrival → If the room is not ready: waits over 45 minutes go to the Duty Manager."
+    },
+    {
+      "id": "m2-4",
+      "type": "single",
+      "sopId": "guest-arrival",
+      "prompt": "By what time should all arrival rooms be in Inspected status?",
+      "choices": ["12:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"],
+      "answer": [1],
+      "explanation": "Guest Arrival → Pre-arrival, step 3."
+    },
+    {
+      "id": "m2-5",
+      "type": "multi",
+      "sopId": "room-readiness",
+      "prompt": "Which room statuses may be assigned to an arriving guest? (Select all that apply)",
+      "choices": ["Dirty", "Clean", "Inspected", "Ready", "Out of Order"],
+      "answer": [2, 3],
+      "explanation": "Room Readiness → Room status definitions: only Inspected or Ready."
+    },
+    {
+      "id": "m2-6",
+      "type": "single",
+      "sopId": "room-readiness",
+      "prompt": "During a final check the AC is not cooling. The correct action is:",
+      "choices": [
+        "Note it and let the guest know",
+        "Set the room to Out of Order, open a Maintenance ticket, and pick a new room",
+        "Ask Housekeeping to look at it",
+        "Leave the room Inspected and check again later"
+      ],
+      "answer": [1],
+      "explanation": "Room Readiness → If something fails: major issues go Out of Order."
+    },
+    {
+      "id": "m2-7",
+      "type": "single",
+      "sopId": "room-readiness",
+      "prompt": "How many pillows should a king room have?",
+      "choices": ["2", "3", "4", "6"],
+      "answer": [2],
+      "explanation": "Room Readiness → Final check list, item 4."
+    }
+  ]
+}
