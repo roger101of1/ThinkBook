@@ -52,7 +52,7 @@ inline `dist/assets/*.css` into a `<style>` and `dist/assets/*.js` into a
 
 Gotcha: react-markdown's bundle contains a literal U+FFFD character inside a
 JS string. The artifact host rejects files containing it. Replace the raw
-character with the `�` escape before publishing:
+character with the `\uFFFD` escape before publishing:
 
 ```js
 html = html.replace(/�/g, '\\uFFFD')
