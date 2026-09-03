@@ -5,6 +5,8 @@ import { getQuiz, getSop, learningPath } from '../lib/content'
 import { moduleStates, passScoreFor } from '../lib/progress'
 import { choicesFor, grade, selectQuestions, type GradeResult } from '../lib/quiz'
 import { store, useProgress } from '../lib/store'
+import { TickRow, type Tick } from '../components/TickRow'
+import { useCountUp, useReveal } from '../lib/motion'
 
 const KIND: Record<Question['type'], string> = { single: 'Choose one', multi: 'Choose all that apply', boolean: 'True or false' }
 
@@ -71,29 +73,8 @@ export default function QuizPage() {
       <>
         {crumbs}
         <div className="quiz-frame">
-          <div className={`result ${result.passed ? 'pass' : 'fail'}`}>
-            <div className="eyebrow">{quiz.title}</div>
-            <div className="score">{result.scorePercent}%</div>
-            <div className="line num">
-              {result.correct} of {result.total} correct · pass mark {passScore}%
-            </div>
-            <h2 className="display" style={{ fontSize: 24, marginTop: 14 }}>
-              {result.passed ? 'Passed. Well done.' : 'Not quite yet.'}
-            </h2>
-            {!result.passed && <p className="muted" style={{ maxWidth: '44ch', margin: '6px auto 0' }}>Look through the answers below, re-read the SOPs you missed, and take it again whenever you're ready.</p>}
-            <div className="actions">
-              {result.passed ? (
-                <Link to="/" className="btn primary lg">Back to my training →</Link>
-              ) : (
-                <>
-                  <button className="btn primary lg" onClick={retake}>Retake the check</button>
-                  <Link to="/" className="btn lg">Review the SOPs</Link>
-                </>
-              )}
-            </div>
-          </div>
-
-          <div className="review">
+          <ResultHero result={result} title={quiz.title} passScore={passScore} onRetake={retake} />
+            <div className="review">
             {result.perQuestion.map(({ question, chosen, correct }, n) => {
               const cs = choicesFor(question)
               const sop = question.sopId ? getSop(question.sopId) : undefined
@@ -131,7 +112,11 @@ export default function QuizPage() {
       <div className="quiz-frame">
         <div className="quiz-top">
           <span>{quiz.title}</span>
-          <div className="track"><span style={{ width: `${((i + (chosen.length ? 1 : 0)) / questions.length) * 100}%` }} /></div>
+          <div className="segs" aria-hidden="true">
+            {questions.map((qq, k) => (
+              <span key={qq.id} className={`seg ${k === i ? 'current' : (answers[qq.id] ?? []).length ? 'answered' : ''}`} />
+            ))}
+          </div>
           <span className="num">{i + 1} / {questions.length}</span>
         </div>
         <div className="quiz-body">
@@ -157,5 +142,31 @@ export default function QuizPage() {
         Pass at {passScore}% · unlimited attempts{state && state.attempts.length > 0 && ` · ${state.attempts.length} so far`}
       </p>
     </>
+  )
+}
+
+function ResultHero({ result, title, passScore, onRetake }: { result: GradeResult; title: string; passScore: number; onRetake: () => void }) {
+  const { ref, key, replay } = useReveal<HTMLDivElement>(0.1)
+  const shown = useCountUp(result.scorePercent, key || 1)
+  const ticks: Tick[] = result.perQuestion.map((p, n) => ({ state: p.correct ? 'done' : 'missed', label: `Q${n + 1} · ${p.correct ? 'correct' : 'missed'}` }))
+  return (
+    <div ref={ref} className={`result ${result.passed ? 'pass' : 'fail'}`} onClick={replay}>
+      <div className="eyebrow">{title}</div>
+      <div className="score num" key={key}>{shown}%</div>
+      <div style={{ margin: '4px 0 12px' }}><TickRow size="lg" ticks={ticks} replayKey={key} /></div>
+      <div className="line num">{result.correct} of {result.total} correct · pass mark {passScore}%</div>
+      <h2 className="display" style={{ fontSize: 24, marginTop: 14 }}>{result.passed ? 'Passed. Well done.' : 'Not quite yet.'}</h2>
+      {!result.passed && <p className="muted" style={{ maxWidth: '44ch', margin: '6px auto 0' }}>Each dot is one question — go through the ones in clay below, re-read those SOPs, and take it again when you're ready.</p>}
+      <div className="actions" onClick={(e) => e.stopPropagation()}>
+        {result.passed ? (
+          <Link to="/" className="btn primary lg">Back to my training →</Link>
+        ) : (
+          <>
+            <button className="btn primary lg" onClick={onRetake}>Retake the check</button>
+            <Link to="/" className="btn lg">Review the SOPs</Link>
+          </>
+        )}
+      </div>
+    </div>
   )
 }

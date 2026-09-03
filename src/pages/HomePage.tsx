@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { getSop, learningPath } from '../lib/content'
 import { moduleStates, overallPercent, pathComplete, type ModuleState } from '../lib/progress'
 import { store, useProgress } from '../lib/store'
+import { ProgressRing } from '../components/ProgressRing'
+import { TickRow, type Tick } from '../components/TickRow'
+import { STAGGER_BAR, STAGGER_DOT } from '../lib/motion'
 
 export default function HomePage() {
   const progress = useProgress()
@@ -29,10 +32,9 @@ export default function HomePage() {
           <NameField name={progress.learnerName} />
         </div>
         <div className="meter">
-          <div className={`ring ${done ? 'done' : ''}`} style={{ ['--pct' as string]: pct }}>
-            <span className="num">{pct}%</span>
-          </div>
-          <div className="small muted num">{completedCount} of {states.length} modules</div>
+          <ProgressRing percent={pct} done={done} />
+          <div className="small muted num" style={{ marginTop: 20 }}>{completedCount} of {states.length} modules</div>
+          <TickRow size="sm" ticks={states.map<Tick>((s) => ({ state: s.status === 'completed' ? 'done' : current?.module.id === s.module.id ? 'current' : 'todo', label: s.module.title }))} />
         </div>
       </section>
 
@@ -94,8 +96,8 @@ function ModuleStep({ state, isCurrent, sopsRead }: { state: ModuleState; isCurr
     : isCurrent ? 'Up next' : 'Not started'
 
   return (
-    <li className={cls}>
-      <div className="node">{status === 'completed' ? '✓' : index + 1}</div>
+    <li className={cls} style={{ ['--i' as string]: index }}>
+      <div className="node" style={{ animationDelay: `${index * STAGGER_BAR}ms` }}>{status === 'completed' ? '✓' : index + 1}</div>
       <div className="body">
         <div className="title-row">
           <h3>{module.title}</h3>
@@ -103,12 +105,12 @@ function ModuleStep({ state, isCurrent, sopsRead }: { state: ModuleState; isCurr
         </div>
         <p>{module.description}</p>
         <ul>
-          {module.sops.map((id) => {
+          {module.sops.map((id, k) => {
             const sop = getSop(id)
             const read = Boolean(sopsRead[id])
             return (
               <li key={id}>
-                <span className={`dot ${read ? 'done' : ''}`} />
+                <span className={`dot ${read ? 'done' : ''}`} style={{ animationDelay: `${index * STAGGER_BAR + k * STAGGER_DOT * 3}ms` }} />
                 {locked ? <span className="muted">{sop?.title ?? id}</span> : <Link to={`/sop/${id}`}>{sop?.title ?? id}</Link>}
                 <span className="meta num">{sop?.readMinutes ?? '–'} min</span>
               </li>
@@ -116,7 +118,7 @@ function ModuleStep({ state, isCurrent, sopsRead }: { state: ModuleState; isCurr
           })}
           {module.quiz && (
             <li>
-              <span className={`dot quiz ${status === 'completed' ? 'done' : ''}`} />
+              <span className={`dot quiz ${status === 'completed' ? 'done' : ''}`} style={{ animationDelay: `${index * STAGGER_BAR + module.sops.length * STAGGER_DOT * 3}ms` }} />
               {locked ? <span className="muted">Module check</span> : <Link to={`/quiz/${module.quiz}`}>Module check</Link>}
               <span className="meta num">
                 {bestAttempt ? `best ${bestAttempt.scorePercent}%` : `pass at ${passScore}%`}

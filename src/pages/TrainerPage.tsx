@@ -2,6 +2,10 @@ import { getQuiz, getSop, learningPath } from '../lib/content'
 import { moduleStates, overallPercent, pathComplete } from '../lib/progress'
 import { isCorrect } from '../lib/quiz'
 import { store, useProgress } from '../lib/store'
+import { AttemptBars } from '../components/AttemptBars'
+import { TickRow, type Tick } from '../components/TickRow'
+import { ProgressRing } from '../components/ProgressRing'
+import { learningPath as path } from '../lib/content'
 
 /**
  * Trainer dashboard. Per-trainee layout so the multi-trainee list (once a
@@ -32,15 +36,40 @@ export default function TrainerPage() {
             <h2>{progress.learnerName || <span className="muted">Unnamed</span>}</h2>
             <div className="small muted">Started {fmt(progress.startedAt)}</div>
           </div>
-          <div>
-            <div className="big">{pct}%</div>
-            <div className={`state-dot ${complete ? 'pine' : 'brass'} small`} style={{ justifyContent: 'flex-end', display: 'flex' }}>
-              {complete ? 'Ready for sign-off' : 'In progress'}
-            </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22 }}>
+            <ProgressRing percent={pct} done={complete} />
+            <div className={`state-dot ${complete ? 'pine' : 'brass'} small`}>{complete ? 'Ready for sign-off' : 'In progress'}</div>
           </div>
         </div>
-        <div className={`bar ${complete ? 'done' : ''}`}><span style={{ width: `${pct}%` }} /></div>
       </section>
+
+      <div className="trainer-viz" style={{ marginTop: 0, marginBottom: 24 }}>
+        <div className="viz-card">
+          <h3>{Object.keys(progress.sopsRead).length} of {path.modules.reduce((n, m) => n + m.sops.length, 0)} SOPs read</h3>
+          <div className="sub">One dot per SOP, one square per module check · in path order</div>
+          <div className="module-ticks">
+            {states.map((s) => {
+              const ticks: Tick[] = [
+                ...s.module.sops.map<Tick>((id) => ({ state: progress.sopsRead[id] ? 'done' : 'todo', label: getSop(id)?.title ?? id })),
+                ...(s.module.quiz ? [{ state: (s.status === 'completed' ? 'quiz-done' : 'quiz-todo') as Tick['state'], label: 'Module check' }] : []),
+              ]
+              return (
+                <div className="row" key={s.module.id}>
+                  <span className={`name ${s.status === 'locked' ? 'locked' : ''}`}>{s.module.title.replace(/^Module \d+ · /, '')}</span>
+                  <TickRow ticks={ticks} />
+                </div>
+              )
+            })}
+          </div>
+          <div className="src">Reading log · this device</div>
+        </div>
+        <div className="viz-card">
+          <h3>{progress.attempts.filter((a) => a.passed).length} of {progress.attempts.length} attempts passed</h3>
+          <div className="sub">One bar per attempt, height = score · dashed line = pass mark</div>
+          <AttemptBars attempts={progress.attempts} passScore={learningPath.defaultPassScore} />
+          <div className="src">Check attempts · all modules</div>
+        </div>
+      </div>
 
       <div className="panel table-wrap">
         <table className="data">
