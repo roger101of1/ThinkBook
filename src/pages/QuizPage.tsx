@@ -156,7 +156,7 @@ function ResultHero({ result, title, passScore, onRetake }: { result: GradeResul
       <div style={{ margin: '4px 0 12px' }}><TickRow size="lg" ticks={ticks} replayKey={key} /></div>
       <div className="line num">{result.correct} of {result.total} correct · pass mark {passScore}%</div>
       <h2 className="display" style={{ fontSize: 24, marginTop: 14 }}>{result.passed ? 'Passed. Well done.' : 'Not quite yet.'}</h2>
-      {!result.passed && <p className="muted" style={{ maxWidth: '44ch', margin: '6px auto 0' }}>Each dot is one question — go through the ones in clay below, re-read those SOPs, and take it again when you're ready.</p>}
+      {!result.passed && <p className="muted" style={{ maxWidth: '44ch', margin: '6px auto 0' }}>Each dot is one question — go through the ones marked red below, re-read those SOPs, and take it again when you're ready.</p>}
       <div className="actions" onClick={(e) => e.stopPropagation()}>
         {result.passed ? (
           <Link to="/" className="btn primary lg">Back to my training →</Link>

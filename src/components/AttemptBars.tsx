@@ -25,13 +25,13 @@ export function AttemptBars({ attempts, passScore, height = 120 }: { attempts: Q
         {/* axis ticks */}
         {[0, 50, 100].map((v) => (
           <g key={v}>
-            <line x1={padL - 4} x2={w - padR} y1={y(v)} y2={y(v)} stroke="var(--mist)" strokeWidth="1" />
-            <text x={padL - 8} y={y(v) + 3.5} textAnchor="end" fontSize="9.5" fontWeight="600" fill="var(--slate)">{v}</text>
+            <line x1={padL - 4} x2={w - padR} y1={y(v)} y2={y(v)} stroke="var(--line)" strokeWidth="1" />
+            <text x={padL - 8} y={y(v) + 3.5} textAnchor="end" fontSize="9.5" fontWeight="600" fill="var(--secondary)">{v}</text>
           </g>
         ))}
         {/* pass mark hairline */}
-        <line x1={padL - 4} x2={w - padR} y1={y(passScore)} y2={y(passScore)} stroke="var(--pine)" strokeWidth="1" strokeDasharray="3 3" />
-        <text x={w - padR} y={y(passScore) - 4} textAnchor="end" fontSize="9" fontWeight="600" fill="var(--pine)">pass {passScore}</text>
+        <line x1={padL - 4} x2={w - padR} y1={y(passScore)} y2={y(passScore)} stroke="var(--secondary)" strokeWidth="1" strokeDasharray="3 3" />
+        <text x={w - padR} y={y(passScore) - 4} textAnchor="end" fontSize="9" fontWeight="600" fill="var(--secondary)">pass {passScore}</text>
 
         {attempts.map((a, i) => {
           const cx = padL + gap * i + gap / 2
@@ -42,12 +42,12 @@ export function AttemptBars({ attempts, passScore, height = 120 }: { attempts: Q
               <rect
                 x={cx - barW / 2} y={top} width={barW} height={h}
                 rx={barW / 2}
-                fill={a.passed ? 'var(--pine)' : 'var(--clay)'}
+                fill={a.passed ? 'var(--accent)' : 'var(--negative)'}
               >
                 <title>{`Attempt ${i + 1} · ${a.scorePercent}% · ${a.passed ? 'pass' : 'fail'} · ${fmt(a.finishedAt)}`}</title>
               </rect>
               <text x={cx} y={top - 5} textAnchor="middle" fontSize="10" fontWeight="800" fill="var(--ink)">{a.scorePercent}</text>
-              <text x={cx} y={height - 6} textAnchor="middle" fontSize="9" fontWeight="600" fill="var(--slate)">{i + 1}</text>
+              <text x={cx} y={height - 6} textAnchor="middle" fontSize="9" fontWeight="600" fill="var(--secondary)">{i + 1}</text>
             </g>
           )
         })}

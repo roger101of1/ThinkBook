@@ -9,7 +9,7 @@ front desk of a well-run hotel: calm, unhurried, brass-and-linen, nothing
 shouting. The trainee should feel taken care of, the same way a guest is.
 
 **Color.**
-- `ink`      #16211C  — green-black, all primary text
+- (superseded 2026-09-03 by the Apple-style palette — see docs/solutions/design-system.md)
 - `pine`     #1F4D3A  — primary action, active states, brand
 - `brass`    #B08A4A  — the one warm accent: progress, "current" markers
 - `linen`    #F4F3EE  — page ground (warm-grey, not cream)

@@ -12,10 +12,10 @@ export function ProgressRing({ percent, label, done }: { percent: number; label?
   return (
     <button ref={ref} className={`ring-btn ${done ? 'done' : ''}`} onClick={replay} title="Click to replay" type="button">
       <svg viewBox="0 0 108 108" width="108" height="108" aria-hidden="true">
-        <circle cx="54" cy="54" r={r} fill="none" stroke="var(--mist)" strokeWidth="7" />
+        <circle cx="54" cy="54" r={r} fill="none" stroke="var(--line)" strokeWidth="7" />
         <circle
           cx="54" cy="54" r={r} fill="none"
-          stroke={done ? 'var(--pine)' : 'var(--brass)'}
+          stroke={done ? 'var(--good)' : 'var(--accent)'}
           strokeWidth="7" strokeLinecap="round"
           strokeDasharray={c}
           strokeDashoffset={c * (1 - shown / 100)}

@@ -38,7 +38,7 @@ export default function TrainerPage() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22 }}>
             <ProgressRing percent={pct} done={complete} />
-            <div className={`state-dot ${complete ? 'pine' : 'brass'} small`}>{complete ? 'Ready for sign-off' : 'In progress'}</div>
+            <div className={`state-dot ${complete ? 'good' : 'active'} small`}>{complete ? 'Ready for sign-off' : 'In progress'}</div>
           </div>
         </div>
       </section>
@@ -84,11 +84,11 @@ export default function TrainerPage() {
                 <td className="num">{s.attempts.length || '—'}</td>
                 <td className="num">{s.bestAttempt ? `${s.bestAttempt.scorePercent}%` : '—'}{s.module.quiz && <span className="muted small"> / {s.passScore}</span>}</td>
                 <td>
-                  {s.status === 'completed' && <span className="state-dot pine">Completed</span>}
+                  {s.status === 'completed' && <span className="state-dot good">Completed</span>}
                   {s.status === 'locked' && <span className="state-dot">Locked</span>}
                   {s.status === 'not-started' && <span className="state-dot">Not started</span>}
-                  {s.status === 'in-progress' && <span className="state-dot brass">Reading</span>}
-                  {s.status === 'reading-done' && <span className="state-dot brass">Needs to pass check</span>}
+                  {s.status === 'in-progress' && <span className="state-dot active">Reading</span>}
+                  {s.status === 'reading-done' && <span className="state-dot active">Needs to pass check</span>}
                 </td>
               </tr>
             ))}
@@ -113,7 +113,7 @@ export default function TrainerPage() {
                     <td className="num" style={{ whiteSpace: 'nowrap' }}>{fmt(a.finishedAt)}</td>
                     <td>{quiz?.title.replace(/ Check · /, ' · ') ?? a.quizId}</td>
                     <td className="num">{a.scorePercent}%</td>
-                    <td>{a.passed ? <span className="state-dot pine">Pass</span> : <span className="state-dot clay">Fail</span>}</td>
+                    <td>{a.passed ? <span className="state-dot good">Pass</span> : <span className="state-dot bad">Fail</span>}</td>
                     <td className="small muted">{missed.length === 0 ? '—' : `${missed.length} · ${missedSops.join('; ')}`}</td>
                   </tr>
                 )
