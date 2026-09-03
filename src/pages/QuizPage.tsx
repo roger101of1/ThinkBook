@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import type { Question } from '../types'
 import { getQuiz, getSop, learningPath } from '../lib/content'
@@ -6,40 +6,46 @@ import { moduleStates, passScoreFor } from '../lib/progress'
 import { choicesFor, grade, selectQuestions, type GradeResult } from '../lib/quiz'
 import { store, useProgress } from '../lib/store'
 
+const KIND: Record<Question['type'], string> = { single: 'Choose one', multi: 'Choose all that apply', boolean: 'True or false' }
+
 export default function QuizPage() {
   const { quizId = '' } = useParams()
   const progress = useProgress()
   const quiz = getQuiz(quizId)
-  const [round, setRound] = useState(0) // bump to re-select questions on retake
+  const [round, setRound] = useState(0)
   const questions = useMemo(() => (quiz ? selectQuestions(quiz) : []), [quiz, round])
+  const [i, setI] = useState(0)
   const [answers, setAnswers] = useState<Record<string, number[]>>({})
-  const [startedAt] = useState(() => new Date().toISOString())
+  const [startedAt, setStartedAt] = useState(() => new Date().toISOString())
   const [result, setResult] = useState<GradeResult | null>(null)
 
-  if (!quiz) return <div className="empty">Quiz not found.</div>
+  useEffect(() => { window.scrollTo({ top: 0 }) }, [i, result])
+
+  if (!quiz) return <div className="empty">Check not found.</div>
 
   const state = moduleStates(learningPath, progress).find((s) => s.module.quiz === quizId)
   const passScore = passScoreFor(learningPath, quizId)
 
   if (state?.status === 'locked') {
     return (
-      <div className="card" style={{ maxWidth: 560 }}>
-        <div className="callout warn">🔒 This check is locked until you complete the previous module.</div>
-        <p><Link to="/">← Back to My Training</Link></p>
+      <div className="panel pad">
+        <div className="eyebrow">Locked</div>
+        <h1 className="display" style={{ fontSize: 24, margin: '8px 0' }}>{quiz.title}</h1>
+        <p className="muted">Finish the previous module first.</p>
+        <Link to="/" className="btn">← My training</Link>
       </div>
     )
   }
 
   const unread = state ? state.module.sops.filter((s) => !progress.sopsRead[s]) : []
-  const answered = questions.filter((q) => (answers[q.id] ?? []).length > 0).length
+  const q = questions[i]
+  const chosen = answers[q?.id] ?? []
+  const isLast = i === questions.length - 1
 
-  function toggle(q: Question, idx: number) {
-    if (result) return
+  function toggle(idx: number) {
     setAnswers((prev) => {
       const cur = prev[q.id] ?? []
-      if (q.type === 'multi') {
-        return { ...prev, [q.id]: cur.includes(idx) ? cur.filter((i) => i !== idx) : [...cur, idx] }
-      }
+      if (q.type === 'multi') return { ...prev, [q.id]: cur.includes(idx) ? cur.filter((x) => x !== idx) : [...cur, idx] }
       return { ...prev, [q.id]: [idx] }
     })
   }
@@ -47,124 +53,109 @@ export default function QuizPage() {
   function submit() {
     const r = grade(questions, answers, passScore)
     setResult(r)
-    store.addAttempt({
-      quizId,
-      startedAt,
-      finishedAt: new Date().toISOString(),
-      scorePercent: r.scorePercent,
-      passed: r.passed,
-      answers,
-    })
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    store.addAttempt({ quizId, startedAt, finishedAt: new Date().toISOString(), scorePercent: r.scorePercent, passed: r.passed, answers })
   }
 
   function retake() {
-    setAnswers({})
-    setResult(null)
-    setRound((r) => r + 1)
-    window.scrollTo({ top: 0 })
+    setAnswers({}); setResult(null); setI(0); setStartedAt(new Date().toISOString()); setRound((r) => r + 1)
+  }
+
+  const crumbs = (
+    <div className="crumbs small muted" style={{ marginBottom: 14 }}>
+      <Link to="/">My training</Link>{state && <> / {state.module.title}</>}
+    </div>
+  )
+
+  if (result) {
+    return (
+      <>
+        {crumbs}
+        <div className="quiz-frame">
+          <div className={`result ${result.passed ? 'pass' : 'fail'}`}>
+            <div className="eyebrow">{quiz.title}</div>
+            <div className="score">{result.scorePercent}%</div>
+            <div className="line num">
+              {result.correct} of {result.total} correct · pass mark {passScore}%
+            </div>
+            <h2 className="display" style={{ fontSize: 24, marginTop: 14 }}>
+              {result.passed ? 'Passed. Well done.' : 'Not quite yet.'}
+            </h2>
+            {!result.passed && <p className="muted" style={{ maxWidth: '44ch', margin: '6px auto 0' }}>Look through the answers below, re-read the SOPs you missed, and take it again whenever you're ready.</p>}
+            <div className="actions">
+              {result.passed ? (
+                <Link to="/" className="btn primary lg">Back to my training →</Link>
+              ) : (
+                <>
+                  <button className="btn primary lg" onClick={retake}>Retake the check</button>
+                  <Link to="/" className="btn lg">Review the SOPs</Link>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="review">
+            {result.perQuestion.map(({ question, chosen, correct }, n) => {
+              const cs = choicesFor(question)
+              const sop = question.sopId ? getSop(question.sopId) : undefined
+              return (
+                <div className="review-item" key={question.id}>
+                  <div className={`mark ${correct ? 'good' : 'bad'}`}>{correct ? '✓' : '✕'}</div>
+                  <div>
+                    <div className="q">{n + 1}. {question.prompt}</div>
+                    {!correct && <div className="ans you">Your answer: {chosen.length ? chosen.map((c) => cs[c]).join(', ') : '—'}</div>}
+                    <div className="ans right">{correct ? 'Correct: ' : 'Answer: '}{question.answer.map((c) => cs[c]).join(', ')}</div>
+                    {(question.explanation || sop) && (
+                      <div className="why">
+                        {question.explanation}
+                        {sop && <> <Link to={`/sop/${sop.id}`}>Re-read {sop.title} →</Link></>}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </>
+    )
   }
 
   return (
-    <div className="reader stack">
-      <div className="small muted">
-        <Link to="/">My Training</Link>
-        {state && <> › {state.module.title}</>}
-      </div>
-
-      <div className="card">
-        <h1 className="page-title" style={{ fontSize: 22 }}>{quiz.title}</h1>
-        <p className="muted small" style={{ margin: 0 }}>
-          {questions.length} questions · pass at {passScore}% · unlimited attempts
-          {state && state.attempts.length > 0 && <> · {state.attempts.length} previous attempt{state.attempts.length > 1 ? 's' : ''}</>}
+    <>
+      {crumbs}
+      {unread.length > 0 && (
+        <p className="note" style={{ marginBottom: 16 }}>
+          Heads up: you haven't marked {unread.map((id, k) => <span key={id}>{k > 0 && ', '}<Link to={`/sop/${id}`}>{getSop(id)?.title ?? id}</Link></span>)} as read. You can still take the check, but the module completes only once they're read.
         </p>
-        {unread.length > 0 && !result && (
-          <div className="callout warn" style={{ marginTop: 12 }}>
-            You haven't marked all SOPs in this module as read yet:{' '}
-            {unread.map((id, i) => (
-              <span key={id}>
-                {i > 0 && ', '}
-                <Link to={`/sop/${id}`}>{getSop(id)?.title ?? id}</Link>
-              </span>
-            ))}
-            . You can still take the check, but the module won't complete until they're read.
-          </div>
-        )}
-      </div>
-
-      {result && (
-        <div className={`card result-hero ${result.passed ? 'pass' : 'fail'}`}>
-          <div className="muted">{result.passed ? 'Passed' : 'Not yet'}</div>
-          <div className="score">{result.scorePercent}%</div>
-          <div className="muted">{result.correct} of {result.total} correct · needed {passScore}%</div>
-          <div className="row" style={{ justifyContent: 'center', marginTop: 16 }}>
-            {result.passed ? (
-              <Link to="/"><button className="primary">Back to My Training</button></Link>
-            ) : (
-              <button className="primary" onClick={retake}>Retake</button>
-            )}
-            {!result.passed && <Link to="/"><button>Review the SOPs first</button></Link>}
-          </div>
-        </div>
       )}
-
-      <div className="card" style={{ padding: 0 }}>
-        {questions.map((q, i) => {
-          const chosen = answers[q.id] ?? []
-          const outcome = result?.perQuestion.find((p) => p.question.id === q.id)
-          return (
-            <div className="question" key={q.id}>
-              <div className="q">
-                {i + 1}. {q.prompt}
-                <small>
-                  {q.type === 'multi' ? 'Select all that apply' : q.type === 'boolean' ? 'True or false' : 'Select one'}
-                </small>
-              </div>
-              {choicesFor(q).map((c, idx) => {
-                const selected = chosen.includes(idx)
-                let cls = 'choice'
-                if (result) {
-                  const isAnswer = q.answer.includes(idx)
-                  if (isAnswer) cls += ' correct'
-                  else if (selected) cls += ' wrong'
-                } else if (selected) cls += ' selected'
-                return (
-                  <label className={cls} key={idx}>
-                    <input
-                      type={q.type === 'multi' ? 'checkbox' : 'radio'}
-                      name={q.id}
-                      checked={selected}
-                      disabled={Boolean(result)}
-                      onChange={() => toggle(q, idx)}
-                    />
-                    <span>{c}</span>
-                  </label>
-                )
-              })}
-              {outcome && (
-                <div className={`explain ${outcome.correct ? 'good' : 'bad'}`}>
-                  <strong>{outcome.correct ? 'Correct.' : 'Incorrect.'}</strong>{' '}
-                  {q.explanation}
-                  {q.sopId && (
-                    <>
-                      {' '}<Link to={`/sop/${q.sopId}`}>Re-read {getSop(q.sopId)?.title ?? q.sopId} →</Link>
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-          )
-        })}
-      </div>
-
-      {!result && (
-        <div className="card row spread">
-          <span className="muted small">{answered} of {questions.length} answered</span>
-          <button className="primary" disabled={answered < questions.length} onClick={submit}>
-            Submit answers
-          </button>
+      <div className="quiz-frame">
+        <div className="quiz-top">
+          <span>{quiz.title}</span>
+          <div className="track"><span style={{ width: `${((i + (chosen.length ? 1 : 0)) / questions.length) * 100}%` }} /></div>
+          <span className="num">{i + 1} / {questions.length}</span>
         </div>
-      )}
-    </div>
+        <div className="quiz-body">
+          <div className="kind">{KIND[q.type]}</div>
+          <div className="prompt">{q.prompt}</div>
+          {choicesFor(q).map((c, idx) => (
+            <label className={`choice ${chosen.includes(idx) ? 'selected' : ''}`} key={idx}>
+              <input type={q.type === 'multi' ? 'checkbox' : 'radio'} name={q.id} checked={chosen.includes(idx)} onChange={() => toggle(idx)} />
+              <span>{c}</span>
+            </label>
+          ))}
+        </div>
+        <div className="quiz-nav">
+          <button className="btn quiet" onClick={() => setI((x) => Math.max(0, x - 1))} disabled={i === 0}>← Back</button>
+          {isLast ? (
+            <button className="btn primary" disabled={chosen.length === 0} onClick={submit}>See my result</button>
+          ) : (
+            <button className="btn primary" disabled={chosen.length === 0} onClick={() => setI((x) => x + 1)}>Next →</button>
+          )}
+        </div>
+      </div>
+      <p className="small muted" style={{ textAlign: 'center', marginTop: 14 }}>
+        Pass at {passScore}% · unlimited attempts{state && state.attempts.length > 0 && ` · ${state.attempts.length} so far`}
+      </p>
+    </>
   )
 }

@@ -1,0 +1,24 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const p = await b.newPage({ viewport: { width: 1200, height: 900 } });
+const errors = []; p.on('pageerror', e => errors.push(e.message));
+await p.goto('http://localhost:4173/#/'); await p.waitForTimeout(1200);
+await p.screenshot({ path: '/tmp/d1-home.png', fullPage: true });
+await p.fill('input[type=text]', 'Jamie Lee'); await p.click('button:has-text("Save")');
+await p.click('a.btn.primary'); await p.waitForTimeout(500);
+await p.screenshot({ path: '/tmp/d2-sop.png', fullPage: false });
+await p.click('button:has-text("read and understood")'); await p.waitForTimeout(200);
+await p.click('a:has-text("Next SOP")'); await p.waitForTimeout(300);
+await p.click('button:has-text("read and understood")'); await p.waitForTimeout(200);
+await p.click('a:has-text("Take the module check")'); await p.waitForTimeout(400);
+await p.screenshot({ path: '/tmp/d3-quiz.png', fullPage: false });
+for (let k = 0; k < 7; k++) { await p.click('.choice >> nth=0'); const last = await p.$('button:has-text("See my result")'); if (last) { await last.click(); break; } await p.click('button:has-text("Next")'); await p.waitForTimeout(100); }
+await p.waitForTimeout(400);
+await p.screenshot({ path: '/tmp/d4-result.png', fullPage: true });
+await p.goto('http://localhost:4173/#/'); await p.waitForTimeout(400);
+await p.screenshot({ path: '/tmp/d5-home2.png', fullPage: true });
+await p.goto('http://localhost:4173/#/trainer'); await p.waitForTimeout(400);
+await p.screenshot({ path: '/tmp/d6-trainer.png', fullPage: true });
+await p.goto('http://localhost:4173/#/library'); await p.waitForTimeout(400);
+await p.screenshot({ path: '/tmp/d7-library.png', fullPage: false });
+console.log('errors:', errors); await b.close();

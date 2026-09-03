@@ -1,74 +1,65 @@
 import { getQuiz, getSop, learningPath } from '../lib/content'
 import { moduleStates, overallPercent, pathComplete } from '../lib/progress'
+import { isCorrect } from '../lib/quiz'
 import { store, useProgress } from '../lib/store'
 
 /**
- * Trainer dashboard.
- *
- * With localStorage persistence this can only show the trainee on *this*
- * device. Once a shared backend exists, this page lists every trainee and
- * drills into each one — the layout below is already per-trainee so that
- * change is additive.
+ * Trainer dashboard. Per-trainee layout so the multi-trainee list (once a
+ * shared store exists) is an additive change.
  */
 export default function TrainerPage() {
   const progress = useProgress()
   const states = moduleStates(learningPath, progress)
   const pct = overallPercent(learningPath, progress)
   const complete = pathComplete(learningPath, progress)
-
   const fmt = (iso: string) => new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
 
   return (
     <>
-      <h1 className="page-title">Trainer dashboard</h1>
-      <p className="page-sub">Progress and check results for the {learningPath.role} onboarding path.</p>
-
-      <div className="callout" style={{ marginBottom: 20 }}>
-        Preview mode: progress is stored in this browser only, so this shows the trainee using this device.
-        Multi-trainee view arrives with the shared data store.
+      <div className="page-head">
+        <h1>Trainer</h1>
+        <p>Progress and check results for the {learningPath.role} path.</p>
       </div>
 
-      <div className="card stack" style={{ marginBottom: 20 }}>
-        <div className="row spread">
+      <p className="note" style={{ marginBottom: 20 }}>
+        Preview: progress is saved in this browser only, so this shows the trainee using this device. A shared store adds the full trainee list.
+      </p>
+
+      <section className="panel pad" style={{ marginBottom: 24 }}>
+        <div className="trainee-card">
           <div>
-            <div className="small muted">Trainee</div>
-            <div style={{ fontWeight: 600, fontSize: 18 }}>{progress.learnerName || <span className="muted">Unnamed</span>}</div>
+            <div className="eyebrow">Trainee</div>
+            <h2>{progress.learnerName || <span className="muted">Unnamed</span>}</h2>
             <div className="small muted">Started {fmt(progress.startedAt)}</div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: 28, fontWeight: 800 }}>{pct}%</div>
-            {complete ? <span className="pill success">✓ Complete — ready for sign-off</span> : <span className="pill accent">In progress</span>}
+          <div>
+            <div className="big">{pct}%</div>
+            <div className={`state-dot ${complete ? 'pine' : 'brass'} small`} style={{ justifyContent: 'flex-end', display: 'flex' }}>
+              {complete ? 'Ready for sign-off' : 'In progress'}
+            </div>
           </div>
         </div>
-        <div className={`bar ${complete ? 'success' : ''}`}><span style={{ width: `${pct}%` }} /></div>
-      </div>
+        <div className={`bar ${complete ? 'done' : ''}`}><span style={{ width: `${pct}%` }} /></div>
+      </section>
 
-      <div className="card" style={{ padding: 0, marginBottom: 20 }}>
+      <div className="panel table-wrap">
         <table className="data">
           <thead>
-            <tr>
-              <th>Module</th>
-              <th>SOPs read</th>
-              <th>Check</th>
-              <th>Attempts</th>
-              <th>Best</th>
-              <th>Status</th>
-            </tr>
+            <tr><th>Module</th><th>SOPs read</th><th>Attempts</th><th>Best</th><th>Status</th></tr>
           </thead>
           <tbody>
             {states.map((s) => (
               <tr key={s.module.id}>
                 <td>{s.module.title}</td>
-                <td>{s.sopsRead} / {s.sopsTotal}</td>
-                <td>{s.module.quiz ? `pass at ${s.passScore}%` : <span className="muted">—</span>}</td>
-                <td>{s.attempts.length}</td>
-                <td>{s.bestAttempt ? `${s.bestAttempt.scorePercent}%` : <span className="muted">—</span>}</td>
+                <td className="num">{s.sopsRead} / {s.sopsTotal}</td>
+                <td className="num">{s.attempts.length || '—'}</td>
+                <td className="num">{s.bestAttempt ? `${s.bestAttempt.scorePercent}%` : '—'}{s.module.quiz && <span className="muted small"> / {s.passScore}</span>}</td>
                 <td>
-                  {s.status === 'completed' && <span className="pill success">Completed</span>}
-                  {s.status === 'locked' && <span className="pill">Locked</span>}
-                  {s.status === 'not-started' && <span className="pill">Not started</span>}
-                  {s.status === 'in-progress' && <span className="pill accent">Reading</span>}
-                  {s.status === 'reading-done' && <span className="pill warn">Needs to pass check</span>}
+                  {s.status === 'completed' && <span className="state-dot pine">Completed</span>}
+                  {s.status === 'locked' && <span className="state-dot">Locked</span>}
+                  {s.status === 'not-started' && <span className="state-dot">Not started</span>}
+                  {s.status === 'in-progress' && <span className="state-dot brass">Reading</span>}
+                  {s.status === 'reading-done' && <span className="state-dot brass">Needs to pass check</span>}
                 </td>
               </tr>
             ))}
@@ -76,35 +67,25 @@ export default function TrainerPage() {
         </table>
       </div>
 
-      <h2 style={{ fontSize: 17, margin: '0 0 10px' }}>Check attempts</h2>
-      <div className="card" style={{ padding: 0, marginBottom: 20 }}>
+      <h2 className="section-title">Check attempts</h2>
+      <div className="panel table-wrap">
         {progress.attempts.length === 0 ? (
           <div className="empty">No attempts yet.</div>
         ) : (
           <table className="data">
-            <thead>
-              <tr><th>When</th><th>Check</th><th>Score</th><th>Result</th><th>Missed</th></tr>
-            </thead>
+            <thead><tr><th>When</th><th>Check</th><th>Score</th><th>Result</th><th>Missed</th></tr></thead>
             <tbody>
               {[...progress.attempts].reverse().map((a, i) => {
                 const quiz = getQuiz(a.quizId)
-                const missed = quiz
-                  ? Object.entries(a.answers)
-                      .map(([qid, chosen]) => quiz.questions.find((q) => q.id === qid && !sameSet(q.answer, chosen)))
-                      .filter(Boolean)
-                  : []
+                const missed = quiz ? quiz.questions.filter((q) => q.id in a.answers && !isCorrect(q, a.answers[q.id])) : []
+                const missedSops = [...new Set(missed.map((q) => (q.sopId ? getSop(q.sopId)?.title ?? q.sopId : q.id)))]
                 return (
                   <tr key={i}>
-                    <td>{fmt(a.finishedAt)}</td>
-                    <td>{quiz?.title ?? a.quizId}</td>
-                    <td>{a.scorePercent}%</td>
-                    <td>{a.passed ? <span className="pill success">Pass</span> : <span className="pill danger">Fail</span>}</td>
-                    <td className="small muted">
-                      {missed.length === 0
-                        ? '—'
-                        : `${missed.length} missed · ` +
-                          [...new Set(missed.map((q) => (q!.sopId ? getSop(q!.sopId)?.title ?? q!.sopId : q!.id)))].join('; ')}
-                    </td>
+                    <td className="num" style={{ whiteSpace: 'nowrap' }}>{fmt(a.finishedAt)}</td>
+                    <td>{quiz?.title.replace(/ Check · /, ' · ') ?? a.quizId}</td>
+                    <td className="num">{a.scorePercent}%</td>
+                    <td>{a.passed ? <span className="state-dot pine">Pass</span> : <span className="state-dot clay">Fail</span>}</td>
+                    <td className="small muted">{missed.length === 0 ? '—' : `${missed.length} · ${missedSops.join('; ')}`}</td>
                   </tr>
                 )
               })}
@@ -113,40 +94,27 @@ export default function TrainerPage() {
         )}
       </div>
 
-      <h2 style={{ fontSize: 17, margin: '0 0 10px' }}>SOP reading log</h2>
-      <div className="card" style={{ padding: 0, marginBottom: 20 }}>
+      <h2 className="section-title">Reading log</h2>
+      <div className="panel table-wrap">
         {Object.keys(progress.sopsRead).length === 0 ? (
           <div className="empty">Nothing read yet.</div>
         ) : (
           <table className="data">
             <thead><tr><th>SOP</th><th>Marked read</th></tr></thead>
             <tbody>
-              {Object.entries(progress.sopsRead)
-                .sort((a, b) => a[1].localeCompare(b[1]))
-                .map(([id, at]) => (
-                  <tr key={id}><td>{getSop(id)?.title ?? id}</td><td>{fmt(at)}</td></tr>
-                ))}
+              {Object.entries(progress.sopsRead).sort((a, b) => a[1].localeCompare(b[1])).map(([id, at]) => (
+                <tr key={id}><td>{getSop(id)?.title ?? id}</td><td className="num">{fmt(at)}</td></tr>
+              ))}
             </tbody>
           </table>
         )}
       </div>
 
-      <div className="row">
-        <button
-          onClick={() => {
-            if (window.confirm('Reset all progress on this device? This cannot be undone.')) store.reset()
-          }}
-        >
+      <div style={{ marginTop: 28 }}>
+        <button className="btn" onClick={() => { if (window.confirm('Reset all progress on this device? This cannot be undone.')) store.reset() }}>
           Reset this trainee's progress
         </button>
       </div>
     </>
   )
-}
-
-function sameSet(a: number[], b: number[]): boolean {
-  if (a.length !== b.length) return false
-  const sa = [...a].sort((x, y) => x - y)
-  const sb = [...b].sort((x, y) => x - y)
-  return sa.every((v, i) => v === sb[i])
 }

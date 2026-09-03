@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -9,13 +10,29 @@ export default function SopPage() {
   const { sopId = '' } = useParams()
   const progress = useProgress()
   const sop = getSop(sopId)
+  const [scrolled, setScrolled] = useState(0)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+    const onScroll = () => {
+      const h = document.documentElement
+      const max = h.scrollHeight - h.clientHeight
+      setScrolled(max <= 0 ? 100 : Math.min(100, Math.round((h.scrollTop / max) * 100)))
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [sopId])
+
   if (!sop) return <div className="empty">SOP not found.</div>
 
   if (!sopUnlocked(learningPath, progress, sopId)) {
     return (
-      <div className="card" style={{ maxWidth: 560 }}>
-        <div className="callout warn">🔒 This SOP is locked until you complete the previous module.</div>
-        <p><Link to="/">← Back to My Training</Link></p>
+      <div className="panel pad">
+        <div className="eyebrow">Locked</div>
+        <h1 className="display" style={{ fontSize: 24, margin: '8px 0' }}>{sop.title}</h1>
+        <p className="muted">Finish the previous module's check to open this SOP.</p>
+        <Link to="/" className="btn">← My training</Link>
       </div>
     )
   }
@@ -24,49 +41,46 @@ export default function SopPage() {
   const readAt = progress.sopsRead[sopId]
   const idx = module ? module.sops.indexOf(sopId) : -1
   const nextSopId = module && idx >= 0 ? module.sops[idx + 1] : undefined
-  const isLastInModule = module && idx === module.sops.length - 1
+  const isLastInModule = Boolean(module && idx === module.sops.length - 1)
+  const position = module ? `${idx + 1} of ${module.sops.length}` : ''
 
   return (
-    <div className="reader stack">
-      <div className="row spread">
-        <div className="small muted">
-          <Link to="/">My Training</Link>
-          {module && <> › {module.title}</>}
-        </div>
-        <div className="row">
-          <span className="pill">{sop.category}</span>
-          <span className="pill">{sop.readMinutes} min read</span>
-          {readAt && <span className="pill success">✓ Read</span>}
-        </div>
-      </div>
+    <>
+      <div className="read-progress" style={{ width: `${scrolled}%` }} />
 
-      <article className="card doc">
+      <header className="doc-head">
+        <div className="crumbs">
+          <Link to="/">My training</Link>
+          {module && <> / {module.title}</>}
+        </div>
         <h1>{sop.title}</h1>
-        {sop.sourceUrl && (
-          <p className="small muted">
-            Source: <a href={sop.sourceUrl} target="_blank" rel="noreferrer">Google Doc</a>
-            {sop.lastSynced && <> · synced {sop.lastSynced}</>}
-          </p>
-        )}
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{sop.body}</ReactMarkdown>
-
-        <div className="doc-footer">
-          {readAt ? (
-            <span className="pill success">✓ Marked as read</span>
-          ) : (
-            <button className="primary" onClick={() => store.markSopRead(sopId)}>
-              I've read and understood this SOP
-            </button>
-          )}
-          {readAt && nextSopId && (
-            <Link to={`/sop/${nextSopId}`}><button>Next SOP →</button></Link>
-          )}
-          {readAt && isLastInModule && module?.quiz && (
-            <Link to={`/quiz/${module.quiz}`}><button className="primary">Take the module check →</button></Link>
-          )}
-          {readAt && <Link to="/" className="small">Back to My Training</Link>}
+        <div className="facts">
+          <span>{sop.category}</span>
+          <span className="num">{sop.readMinutes} min read</span>
+          {position && <span className="num">SOP {position} in this module</span>}
+          {sop.sourceUrl && <span><a href={sop.sourceUrl} target="_blank" rel="noreferrer">Source document</a></span>}
         </div>
+      </header>
+
+      <article className="doc">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{sop.body}</ReactMarkdown>
       </article>
-    </div>
+
+      <div className="actionbar">
+        {readAt ? (
+          <>
+            <span className="msg"><strong>✓ Read.</strong> {nextSopId ? 'Ready for the next SOP.' : isLastInModule && module?.quiz ? 'That was the last SOP in this module.' : ''}</span>
+            {nextSopId && <Link to={`/sop/${nextSopId}`} className="btn primary">Next SOP →</Link>}
+            {!nextSopId && isLastInModule && module?.quiz && <Link to={`/quiz/${module.quiz}`} className="btn primary">Take the module check →</Link>}
+            {!nextSopId && !(isLastInModule && module?.quiz) && <Link to="/" className="btn primary">Back to my training</Link>}
+          </>
+        ) : (
+          <>
+            <span className="msg">When you've read it all, mark it done.</span>
+            <button className="btn primary" onClick={() => store.markSopRead(sopId)}>I've read and understood this</button>
+          </>
+        )}
+      </div>
+    </>
   )
 }
