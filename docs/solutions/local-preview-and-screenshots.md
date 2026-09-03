@@ -43,3 +43,17 @@ GitHub Pages serves static files only — a deep link like
 `/sop-academy/sop/guest-arrival` would 404 with BrowserRouter. HashRouter
 keeps everything under `index.html`. If we move to a host with rewrites we
 can switch to BrowserRouter in `main.tsx`; nothing else changes.
+
+## Publishing a single-file preview (Claude artifact)
+
+For a click-through demo without deploying: build with `VITE_BASE=./`, then
+inline `dist/assets/*.css` into a `<style>` and `dist/assets/*.js` into a
+`<script type="module">` in one HTML file.
+
+Gotcha: react-markdown's bundle contains a literal U+FFFD character inside a
+JS string. The artifact host rejects files containing it. Replace the raw
+character with the `�` escape before publishing:
+
+```js
+html = html.replace(/�/g, '\\uFFFD')
+```
