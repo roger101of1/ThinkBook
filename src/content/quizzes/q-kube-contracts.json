@@ -1,170 +1,125 @@
 {
   "id": "q-kube-contracts",
   "title": "Check · Kube contracts",
-  "shuffle": true,
+  "shuffle": false,
   "questions": [
     {
       "id": "kube-1",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "You searched for a company in Kube and it doesn't appear under Company, Member, or Lead. What do you do first?",
-      "choices": [
-        "Click Add User right away",
-        "Tick “Include Archived” and search again",
-        "Create the contract without a company",
-        "Ask the Duty Manager"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Kube contracts → Step 1: check Include Archived before adding a new user."
+      "prompt": "You search for a company in Kube and it doesn't show up under Company, Member, or Lead. What do you do, in order?",
+      "modelAnswer": "First tick the “Include Archived” checkbox and search again with the magnifying glass. If they still don't appear, click “Add User” to add the company and its primary contact as a member or lead. Once found, click “Create Contract”.",
+      "keyPoints": [
+        "Tick \"Include Archived\" and search again",
+        "Then \"Add User\" to add the company and primary contact",
+        "Click \"Create Contract\" once found"
+      ]
     },
     {
       "id": "kube-2",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "Which field controls the proration of the first month's rent and when booking credits activate?",
-      "choices": [
-        "Contract Name",
-        "Move-in Date",
-        "Term Type",
-        "Renewal Price"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Kube contracts → Step 2: the Move-in Date drives both."
+      "prompt": "What does the Move-in Date control, and why does it matter?",
+      "modelAnswer": "The Move-in Date controls the proration of the first month's rent and when any booking credits activate. Get it wrong and the first invoice and the member's conference-room credits are both wrong.",
+      "keyPoints": [
+        "Proration of the first month's rent",
+        "When booking credits activate"
+      ]
     },
     {
       "id": "kube-3",
-      "type": "multi",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "Which settings are correct on the Terms & Company page? (Select all that apply)",
-      "choices": [
-        "Term Type: Fixed Term",
-        "Auto Renew: Off",
-        "Contract Term: 6 or 12",
-        "Renewal Price: Custom Pricing, 4.00% increase",
-        "Renewal Price: Market Rate"
-      ],
-      "answer": [
-        0,
-        2,
-        3
-      ],
-      "explanation": "Kube contracts → Step 2 table. Auto Renew must be On."
+      "prompt": "List the standard settings on the Terms & Company page for term, term type, auto-renew and renewal price.",
+      "modelAnswer": "Contract Term is 6 or 12 (per the agreement). Term Type is Fixed Term. Auto Renew is On. Renewal Price should default to Custom Pricing with a 4.00% increase.",
+      "keyPoints": [
+        "Term 6 or 12",
+        "Fixed Term",
+        "Auto Renew On",
+        "Custom Pricing with 4.00% increase"
+      ]
     },
     {
       "id": "kube-4",
-      "type": "boolean",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "If “Bill Full Contract Cost at Start of Term” was enabled by mistake on an active contract, you can turn it off with an amendment.",
-      "answer": [
-        1
-      ],
-      "explanation": "Kube contracts → Warning: it cannot be disabled by amendment; the contract must be terminated and recreated."
+      "prompt": "What is the risk with the “Bill Full Contract Cost at Start of Term” option?",
+      "modelAnswer": "Once it is enabled on an active contract it cannot be disabled through an amendment. The only way back is to terminate the contract and create a new one without the option. So only tick it when the member really must be invoiced for the whole term up front.",
+      "keyPoints": [
+        "Cannot be disabled through an amendment",
+        "Must terminate and create a new contract"
+      ]
     },
     {
       "id": "kube-5",
-      "type": "boolean",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "After you click Save & Continue, changes on the following pages are saved automatically.",
-      "answer": [
-        0
-      ],
-      "explanation": "Kube contracts → Note under Save & Continue."
+      "prompt": "After the first Save & Continue, what saves automatically and what doesn't?",
+      "modelAnswer": "The following pages (Spaces, Amenities, Communicate…) auto-save as you move through them. But any change made back on the Terms & Company page needs Save & Continue clicked again to be saved and applied.",
+      "keyPoints": [
+        "Following pages auto-save",
+        "Changes on Terms & Company need Save & Continue again"
+      ]
     },
     {
       "id": "kube-6",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "You go back and change the Move-in Date on the Terms & Company page after the contract was first saved. What must you do?",
-      "choices": [
-        "Nothing — every page auto-saves",
-        "Click Save & Continue again",
-        "Terminate and recreate the contract",
-        "Email support"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Step 2 note: changes on Terms & Company need Save & Continue to apply."
+      "prompt": "Explain the difference between Simple and Custom pricing for a space, and when you'd use Custom.",
+      "modelAnswer": "Simple pricing sets one price (with optional % or $ discount or increase) for the whole term. Custom pricing lets you add steps by date range — for example one month Free, then the Contract Price for the rest of the term. Use Custom when the agreement has a free period or a price that changes during the term.",
+      "keyPoints": [
+        "Simple = one price for the whole term",
+        "Custom = steps by date range (Add Step)",
+        "Used for a free period or changing price"
+      ]
     },
     {
       "id": "kube-7",
-      "type": "boolean",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "For a contract at the Seattle property you should add the “4 Conference Room Hours/Month” booking credit.",
-      "answer": [
-        1
-      ],
-      "explanation": "Step 4: Seattle has no booking credits — skip that step."
+      "prompt": "What do you add on the Amenities page, and what is different for the Seattle property?",
+      "modelAnswer": "Add the “4 Conference Room Hours/Month” booking-credit amenity, then any other monthly amenities or charges from the agreement such as parking, setting quantity with the QTY buttons and price with Simple or Custom pricing. At Seattle skip the booking credits — there are none at that property.",
+      "keyPoints": [
+        "\"4 Conference Room Hours/Month\" booking credits",
+        "Other monthly amenities like parking, with QTY and pricing",
+        "Seattle has no booking credits — skip"
+      ]
     },
     {
       "id": "kube-8",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "Which method of communication can be used to activate a contract right now?",
-      "choices": [
-        "ySign only",
-        "Manual only",
-        "Either",
-        "Neither — activation is done by Yardi"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Step 6: Manual Method of Communication ONLY for now."
+      "prompt": "Walk through the Manual signing method from the Communicate page to activation.",
+      "modelAnswer": "Select Manual. Enter notes in the Notes box, use the Default Template, then use Signed Document Upload to upload the hand-signed agreement (it can be downloaded or removed later). Click Email to send the agreement to the member, Download any time for the latest version, then click Activate in the upper-right corner.",
+      "keyPoints": [
+        "Select Manual",
+        "Signed Document Upload for the hand-signed agreement",
+        "Email to send to the member",
+        "Activate in the upper-right corner"
+      ]
     },
     {
       "id": "kube-9",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "On the Activate screen no charges are listed. What does that mean?",
-      "choices": [
-        "The contract is broken",
-        "The Move-in Date is after the next Monthly Posting date; Kube adds the charges then",
-        "The spaces weren't saved",
-        "The member has no payment method"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Step 6, note under the checkbox step."
+      "prompt": "Which communication method can be used to activate a contract right now, and why?",
+      "modelAnswer": "Manual only, for now. The ySign document template is still in progress, and the Countersign and Activate steps for ySign will be sent once the template is ready and training is complete.",
+      "keyPoints": [
+        "Manual only for now",
+        "ySign not ready — template still in progress"
+      ]
     },
     {
       "id": "kube-10",
-      "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "What does the Due Date on the Activate screen control?",
-      "choices": [
-        "When the contract expires",
-        "When the first automatic payment attempt is made (if auto-pay is on)",
-        "When booking credits activate",
-        "When the agreement is emailed"
-      ],
-      "answer": [
-        1
-      ],
-      "explanation": "Step 6 reminder."
+      "prompt": "On the Activate screen, what do you do about the charges, and what does it mean if none are listed?",
+      "modelAnswer": "Check the checkbox to the left of each charge. If no charges are listed, the Move-in Date is after the next Monthly Posting date — Kube will add that month's contract charges automatically then. Update the Creation Date and Due Date if needed, then click Activate Contract and OK.",
+      "keyPoints": [
+        "Check the checkbox next to the charges",
+        "No charges = Move-in Date after the next Monthly Posting date",
+        "Click Activate Contract then OK"
+      ]
     },
     {
       "id": "kube-11",
-      "type": "multi",
       "sopId": "kube-virtual-office-coworking-contracts",
-      "prompt": "Which are steps of the Manual signing method? (Select all that apply)",
-      "choices": [
-        "Upload the hand-signed agreement via Signed Document Upload",
-        "Click Send to start the ySign timeline",
-        "Click Email to send the agreement to the member",
-        "Click Activate in the upper-right corner"
-      ],
-      "answer": [
-        0,
-        2,
-        3
-      ],
-      "explanation": "Step 5 → Manual. “Send” belongs to the ySign path."
+      "prompt": "What is the Due Date on the Activate screen used for?",
+      "modelAnswer": "The Due Date is when the first automatic payment attempt will be made, provided the company has a payment method on file and auto-pay is enabled.",
+      "keyPoints": [
+        "First automatic payment attempt",
+        "Only if payment method on file and auto-pay enabled"
+      ]
     }
   ]
 }

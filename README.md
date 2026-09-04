@@ -28,8 +28,8 @@ Pushing to `main` deploys to GitHub Pages via `.github/workflows/deploy.yml`
 
 - **My Training** — the learning path: modules, SOPs, checks, locking, progress.
 - **SOP** — reader with "I've read and understood" and a jump to the next step.
-- **Module check** — quiz with pass score, shuffle, per-question feedback that
-  links back to the SOP, unlimited retakes.
+- **Module check** — short-answer questions; each answer gets an approximate
+  accuracy, the complete answer, and the key points hit/missed; unlimited retakes.
 - **SOP Library** — all SOPs by category, keyword search, "Ask AI" (stub).
 - **Trainer** — per-module progress, every attempt with what was missed,
   reading log.
@@ -42,8 +42,8 @@ Content is data, no code changes required:
   pass score, complete-in-order.
 - `src/content/sops/<id>.md` — one SOP; front matter `title`, `category`,
   `readMinutes`, `sourceUrl`, then markdown.
-- `src/content/quizzes/<id>.json` — questions (`single` / `multi` / `boolean`),
-  `answer` indexes, `explanation`, and `sopId` for the "re-read" link.
+- `src/content/quizzes/<id>.json` — short-answer questions: `prompt`,
+  `modelAnswer`, `keyPoints[]` (rubric), `sopId` for the "re-read" link.
 
 Run `npm run dev` and check the console — `validateContent()` warns about any
 dangling ids.

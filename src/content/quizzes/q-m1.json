@@ -5,70 +5,38 @@
   "questions": [
     {
       "id": "m1-1",
-      "type": "single",
       "sopId": "role-overview",
-      "prompt": "Within how many seconds should you greet a guest who enters your area?",
-      "choices": ["5 seconds", "10 seconds", "30 seconds", "1 minute"],
-      "answer": [1],
-      "explanation": "Role Overview → Key standards: greet every guest within 10 seconds."
+      "prompt": "What are the three things you do in the first 15 minutes of a shift?",
+      "modelAnswer": "Read the handover notes, check today's arrivals, and walk the lobby.",
+      "keyPoints": ["Read the handover notes", "Check today's arrivals", "Walk the lobby"]
     },
     {
       "id": "m1-2",
-      "type": "single",
       "sopId": "role-overview",
-      "prompt": "Above what amount does a compensation require Duty Manager approval?",
-      "choices": ["$20", "$50", "$100", "Any amount"],
-      "answer": [1],
-      "explanation": "Role Overview → Key standards: never promise compensation over $50 without approval."
+      "prompt": "Name two of the key standards from the Role Overview that involve a specific number.",
+      "modelAnswer": "Greet every guest within 10 seconds; never promise compensation over $50 without Duty Manager approval; nothing sits unassigned on the task board for more than 15 minutes.",
+      "keyPoints": ["Greet within 10 seconds", "Compensation over $50 needs Duty Manager approval", "Nothing unassigned more than 15 minutes"]
     },
     {
       "id": "m1-3",
-      "type": "multi",
-      "sopId": "role-overview",
-      "prompt": "Which of these are part of the end-of-shift routine? (Select all that apply)",
-      "choices": ["Write handover notes", "Walk the lobby", "Close or reassign every open task", "File any incident reports", "Pull the arrivals list"],
-      "answer": [0, 2, 3],
-      "explanation": "Role Overview → Shift structure. Walking the lobby and pulling arrivals are start-of-shift tasks."
+      "sopId": "communication-standards",
+      "prompt": "Someone calls saying they are a guest's spouse and asks for the room number. What do you do and why?",
+      "modelAnswer": "Do not confirm whether the person is a guest or give out the room number — only the registered guest gets that information. Direct the caller to the Duty Manager.",
+      "keyPoints": ["Never confirm a room number to anyone but the registered guest", "Direct them to the Duty Manager"]
     },
     {
       "id": "m1-4",
-      "type": "boolean",
       "sopId": "communication-standards",
-      "prompt": "You may confirm a guest's room number to a caller who says they are the guest's spouse.",
-      "answer": [1],
-      "explanation": "Communication Standards → Confidentiality: never confirm a room number to anyone but the registered guest."
+      "prompt": "Describe the phone standards: rings, hold, and what you do before ending a call.",
+      "modelAnswer": "Answer within three rings, ask permission before placing a guest on hold and check back within 60 seconds, and repeat back any request or reservation detail before ending the call.",
+      "keyPoints": ["Answer within three rings", "Check back on hold within 60 seconds", "Repeat back the request before ending"]
     },
     {
       "id": "m1-5",
-      "type": "single",
       "sopId": "communication-standards",
-      "prompt": "What is the maximum time a guest should be left on hold without checking back?",
-      "choices": ["30 seconds", "60 seconds", "2 minutes", "As long as needed"],
-      "answer": [1],
-      "explanation": "Communication Standards → On the phone: check back within 60 seconds."
-    },
-    {
-      "id": "m1-6",
-      "type": "single",
-      "sopId": "communication-standards",
-      "prompt": "The 10/5 rule means:",
-      "choices": [
-        "Answer the phone within 10 seconds, reply to email within 5 minutes",
-        "Make eye contact at 10 feet, greet verbally at 5 feet",
-        "10 guests per coordinator, 5 per shift lead",
-        "Reply to messages within 10 minutes, calls within 5"
-      ],
-      "answer": [1],
-      "explanation": "Communication Standards → In person."
-    },
-    {
-      "id": "m1-7",
-      "type": "single",
-      "sopId": "communication-standards",
-      "prompt": "Guest messages received during your shift should be answered within:",
-      "choices": ["5 minutes", "15 minutes", "1 hour", "By end of shift"],
-      "answer": [1],
-      "explanation": "Communication Standards → In writing: reply within 15 minutes."
+      "prompt": "What is the 10/5 rule?",
+      "modelAnswer": "Make eye contact and smile when a guest is 10 feet away, and greet them verbally at 5 feet.",
+      "keyPoints": ["Eye contact and smile at 10 feet", "Verbal greeting at 5 feet"]
     }
   ]
 }

@@ -45,20 +45,17 @@ export interface Sop {
   body: string
 }
 
-export type QuestionType = 'single' | 'multi' | 'boolean'
-
 export interface Question {
   id: string
-  type: QuestionType
   prompt: string
-  /** For 'boolean' the choices are implicitly ["True", "False"]. */
-  choices?: string[]
-  /** Index(es) into choices. For 'boolean': [0] = True, [1] = False. */
-  answer: number[]
-  /** Shown after answering; ideally cites the SOP section. */
-  explanation?: string
-  /** SOP id this question is drawn from — lets a wrong answer link back to the reading. */
+  /** The complete answer the learner sees afterwards. */
+  modelAnswer: string
+  /** Rubric: the facts a good answer must contain. Accuracy = share covered. */
+  keyPoints: string[]
+  /** SOP id this question is drawn from — lets a weak answer link back to the reading. */
   sopId?: string
+  /** Optional nudge shown under the prompt. */
+  hint?: string
 }
 
 export interface Quiz {
@@ -74,14 +71,24 @@ export interface Quiz {
 
 /* ---------- Learner progress (persisted; see lib/store.ts) ---------- */
 
+export interface AnswerRecord {
+  text: string
+  /** 0–100, from the grader. */
+  accuracy: number
+  covered: string[]
+  missed: string[]
+  feedback?: string
+}
+
 export interface QuizAttempt {
   quizId: string
   startedAt: string
   finishedAt: string
+  /** Mean accuracy across questions, 0–100. */
   scorePercent: number
   passed: boolean
-  /** questionId -> chosen indexes */
-  answers: Record<string, number[]>
+  /** questionId -> graded answer */
+  answers: Record<string, AnswerRecord>
 }
 
 export interface LearnerProgress {

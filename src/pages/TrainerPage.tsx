@@ -1,6 +1,5 @@
 import { getQuiz, getSop, learningPath } from '../lib/content'
 import { moduleStates, overallPercent, pathComplete } from '../lib/progress'
-import { isCorrect } from '../lib/quiz'
 import { store, useProgress } from '../lib/store'
 import { AttemptBars } from '../components/AttemptBars'
 import { TickRow, type Tick } from '../components/TickRow'
@@ -102,19 +101,19 @@ export default function TrainerPage() {
           <div className="empty">No attempts yet.</div>
         ) : (
           <table className="data">
-            <thead><tr><th>When</th><th>Check</th><th>Score</th><th>Result</th><th>Missed</th></tr></thead>
+            <thead><tr><th>When</th><th>Check</th><th>Accuracy</th><th>Result</th><th>Key points missed</th></tr></thead>
             <tbody>
               {[...progress.attempts].reverse().map((a, i) => {
                 const quiz = getQuiz(a.quizId)
-                const missed = quiz ? quiz.questions.filter((q) => q.id in a.answers && !isCorrect(q, a.answers[q.id])) : []
-                const missedSops = [...new Set(missed.map((q) => (q.sopId ? getSop(q.sopId)?.title ?? q.sopId : q.id)))]
+                const missedPoints = [...new Set(Object.values(a.answers).flatMap((ans) => ans.missed ?? []))]
+                const weak = quiz ? quiz.questions.filter((q) => (a.answers[q.id]?.accuracy ?? 0) < 70).length : 0
                 return (
                   <tr key={i}>
                     <td className="num" style={{ whiteSpace: 'nowrap' }}>{fmt(a.finishedAt)}</td>
                     <td>{quiz?.title.replace(/ Check · /, ' · ') ?? a.quizId}</td>
-                    <td className="num">{a.scorePercent}%</td>
+                    <td className="num">~{a.scorePercent}%</td>
                     <td>{a.passed ? <span className="state-dot good">Pass</span> : <span className="state-dot bad">Fail</span>}</td>
-                    <td className="small muted">{missed.length === 0 ? '—' : `${missed.length} · ${missedSops.join('; ')}`}</td>
+                    <td className="small muted">{missedPoints.length === 0 ? '—' : `${weak} weak · ${missedPoints.slice(0, 4).join('; ')}${missedPoints.length > 4 ? '…' : ''}`}</td>
                   </tr>
                 )
               })}

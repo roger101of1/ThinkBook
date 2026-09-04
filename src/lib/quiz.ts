@@ -1,13 +1,8 @@
 /**
- * Quiz mechanics: question selection, grading.
- * Mirrors Trainual's test rules: pass score %, optional shuffle, optional
- * "ask only N questions", unlimited retakes.
+ * Quiz mechanics: question selection and scoring of graded answers.
+ * Pass score %, optional shuffle, optional "ask only N", unlimited retakes.
  */
-import type { Question, Quiz } from '../types'
-
-export function choicesFor(q: Question): string[] {
-  return q.type === 'boolean' ? ['True', 'False'] : (q.choices ?? [])
-}
+import type { AnswerRecord, Question, Quiz } from '../types'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -25,28 +20,22 @@ export function selectQuestions(quiz: Quiz): Question[] {
   return qs
 }
 
-export function isCorrect(q: Question, chosen: number[] | undefined): boolean {
-  if (!chosen || chosen.length === 0) return false
-  const a = [...q.answer].sort((x, y) => x - y)
-  const c = [...chosen].sort((x, y) => x - y)
-  return a.length === c.length && a.every((v, i) => v === c[i])
-}
-
 export interface GradeResult {
-  correct: number
-  total: number
   scorePercent: number
   passed: boolean
-  perQuestion: { question: Question; chosen: number[]; correct: boolean }[]
+  perQuestion: { question: Question; answer: AnswerRecord }[]
 }
 
-export function grade(questions: Question[], answers: Record<string, number[]>, passScore: number): GradeResult {
-  const perQuestion = questions.map((question) => {
-    const chosen = answers[question.id] ?? []
-    return { question, chosen, correct: isCorrect(question, chosen) }
-  })
-  const correct = perQuestion.filter((p) => p.correct).length
-  const total = questions.length
-  const scorePercent = total === 0 ? 0 : Math.round((correct / total) * 100)
-  return { correct, total, scorePercent, passed: scorePercent >= passScore, perQuestion }
+/** Combine per-question grader outcomes into an attempt score. */
+export function score(questions: Question[], answers: Record<string, AnswerRecord>, passScore: number): GradeResult {
+  const perQuestion = questions.map((question) => ({
+    question,
+    answer: answers[question.id] ?? { text: '', accuracy: 0, covered: [], missed: question.keyPoints },
+  }))
+  const mean = perQuestion.length === 0 ? 0 : perQuestion.reduce((s, p) => s + p.answer.accuracy, 0) / perQuestion.length
+  const scorePercent = Math.round(mean)
+  return { scorePercent, passed: scorePercent >= passScore, perQuestion }
 }
+
+/** Treat an answer as "good" for tick-row colouring. */
+export const GOOD_THRESHOLD = 70

@@ -5,75 +5,38 @@
   "questions": [
     {
       "id": "m2-1",
-      "type": "boolean",
       "sopId": "guest-arrival",
-      "prompt": "Returning guests you recognize do not need to show photo ID at check-in.",
-      "answer": [1],
-      "explanation": "Guest Arrival → Common mistakes: the ID check is required every time."
+      "prompt": "A regular guest you recognise arrives. Do you still check ID, and how do you hand over the room number?",
+      "modelAnswer": "Yes — a government-issued photo ID is required at every check-in, regulars included. The room number goes written in the key packet, never spoken aloud in the lobby.",
+      "keyPoints": ["Photo ID required every time", "Room number written in the key packet, not spoken aloud"]
     },
     {
       "id": "m2-2",
-      "type": "single",
       "sopId": "guest-arrival",
-      "prompt": "How should the room number be communicated to the guest?",
-      "choices": ["Spoken clearly so they remember it", "Written in the key packet, not spoken aloud", "Texted to their phone", "Printed on the receipt only"],
-      "answer": [1],
-      "explanation": "Guest Arrival → When the guest arrives, step 6."
+      "prompt": "The guest's room won't be ready for about an hour. What do you do?",
+      "modelAnswer": "Apologise once, offer to store luggage and give an honest ETA, offer a complimentary drink voucher, and because the wait exceeds 45 minutes notify the Duty Manager to discuss an upgrade or compensation. Contact the guest the moment the room is ready.",
+      "keyPoints": ["Store luggage and give an ETA", "Drink voucher (no approval needed)", "Over 45 minutes: notify the Duty Manager", "Tell the guest when the room is ready"]
     },
     {
       "id": "m2-3",
-      "type": "single",
       "sopId": "guest-arrival",
-      "prompt": "A guest's room is not ready and the wait will be about an hour. What must you do?",
-      "choices": [
-        "Offer a drink voucher and ask them to wait",
-        "Offer a drink voucher, store luggage, and notify the Duty Manager because the wait exceeds 45 minutes",
-        "Give them a different room in any category",
-        "Ask them to come back later"
-      ],
-      "answer": [1],
-      "explanation": "Guest Arrival → If the room is not ready: waits over 45 minutes go to the Duty Manager."
+      "prompt": "By what time should arrival rooms be Inspected, and where do you confirm it?",
+      "modelAnswer": "All arrival rooms should be in Inspected status by 2:00 PM; confirm the status with Housekeeping on the task board.",
+      "keyPoints": ["Inspected by 2:00 PM", "Confirm on the task board with Housekeeping"]
     },
     {
       "id": "m2-4",
-      "type": "single",
-      "sopId": "guest-arrival",
-      "prompt": "By what time should all arrival rooms be in Inspected status?",
-      "choices": ["12:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"],
-      "answer": [1],
-      "explanation": "Guest Arrival → Pre-arrival, step 3."
+      "sopId": "room-readiness",
+      "prompt": "Which room statuses can be assigned to an arriving guest, and who sets the Ready status?",
+      "modelAnswer": "Only rooms in Inspected or Ready status. Inspected is set by the Housekeeping supervisor; Ready is set by the Hospitality Coordinator after the final check.",
+      "keyPoints": ["Only Inspected or Ready", "Ready is set by the Hospitality Coordinator"]
     },
     {
       "id": "m2-5",
-      "type": "multi",
       "sopId": "room-readiness",
-      "prompt": "Which room statuses may be assigned to an arriving guest? (Select all that apply)",
-      "choices": ["Dirty", "Clean", "Inspected", "Ready", "Out of Order"],
-      "answer": [2, 3],
-      "explanation": "Room Readiness → Room status definitions: only Inspected or Ready."
-    },
-    {
-      "id": "m2-6",
-      "type": "single",
-      "sopId": "room-readiness",
-      "prompt": "During a final check the AC is not cooling. The correct action is:",
-      "choices": [
-        "Note it and let the guest know",
-        "Set the room to Out of Order, open a Maintenance ticket, and pick a new room",
-        "Ask Housekeeping to look at it",
-        "Leave the room Inspected and check again later"
-      ],
-      "answer": [1],
-      "explanation": "Room Readiness → If something fails: major issues go Out of Order."
-    },
-    {
-      "id": "m2-7",
-      "type": "single",
-      "sopId": "room-readiness",
-      "prompt": "How many pillows should a king room have?",
-      "choices": ["2", "3", "4", "6"],
-      "answer": [2],
-      "explanation": "Room Readiness → Final check list, item 4."
+      "prompt": "During a final check the AC isn't cooling. What happens to the room and the guest?",
+      "modelAnswer": "It's a major fault: set the room to Out of Order, open a Maintenance ticket, and pick a new room for the guest. Log the check on the task board.",
+      "keyPoints": ["Set to Out of Order", "Open a Maintenance ticket", "Pick a new room"]
     }
   ]
 }

@@ -50,7 +50,8 @@ src/
     content.ts        loads content/ at build time; validateContent()
     store.ts          ProgressStore interface + localStorage impl
     progress.ts       pure derivations: module status, locking, % complete
-    quiz.ts           question selection + grading
+    quiz.ts           question selection + attempt scoring
+    grader.ts         local rubric grader for short answers (fallback behind ai.ts)
     search.ts         keyword search (semantic search is a planned upgrade)
     ai.ts             AiProvider boundary (Grok goes here; stub for now)
   pages/              one file per route
@@ -63,7 +64,9 @@ docs/
 ## Conventions
 
 - **Content is data.** Adding an SOP = add a `.md` under `content/sops/` and
-  reference its id in `path.json`. Adding a question = edit the quiz JSON.
+  reference its id in `path.json`. Adding a question = edit the quiz JSON:
+  `prompt`, `modelAnswer`, `keyPoints[]` (the rubric — 2–5 concrete facts,
+  include the exact numbers/names), `sopId`.
   No code changes needed. `validateContent()` warns in dev if ids don't line up.
 - **SOP ids** are kebab-case file names and must be stable (progress is keyed
   on them).
@@ -80,6 +83,9 @@ docs/
 
 - One role, one path, `completeInOrder: true`, default pass score 80 %
   (safety module 90 %), unlimited retakes — same philosophy as Trainual.
+- **Checks are short-answer only** (Roger, 2026-09-04). The learner writes;
+  the grader returns an *approximate* accuracy plus the complete answer and
+  the key points hit/missed. No multiple choice.
 - Trainee marks an SOP "read" explicitly; there is no scroll-tracking.
 - Wrong answers link back to the SOP they came from (`question.sopId`).
 - Login, multi-trainee storage, Google Docs sync, and Grok are **deferred**

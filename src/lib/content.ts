@@ -86,8 +86,8 @@ export function validateContent(): string[] {
     if (m.quiz) {
       for (const q of quizzes[m.quiz]?.questions ?? []) {
         if (q.sopId && !sops[q.sopId]) problems.push(`Question "${q.id}" references missing SOP "${q.sopId}"`)
-        if (q.type !== 'boolean' && (!q.choices || q.choices.length < 2)) problems.push(`Question "${q.id}" needs at least 2 choices`)
-        if (q.answer.length === 0) problems.push(`Question "${q.id}" has no answer`)
+        if (!q.modelAnswer) problems.push(`Question "${q.id}" has no model answer`)
+        if (!q.keyPoints || q.keyPoints.length === 0) problems.push(`Question "${q.id}" has no key points`)
       }
     }
   }
