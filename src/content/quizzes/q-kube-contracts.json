@@ -1,0 +1,50 @@
+{
+  "id": "q-kube-contracts",
+  "title": "Check · Kube contracts (draft, from page 1)",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "kube-1",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "You searched for a company in Kube and it doesn't appear under Company, Member, or Lead. What do you do first?",
+      "choices": ["Click Add User right away", "Tick “Include Archived” and search again", "Create the contract without a company", "Ask the Duty Manager"],
+      "answer": [1],
+      "explanation": "Kube contracts → Step 1: check Include Archived before adding a new user."
+    },
+    {
+      "id": "kube-2",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "Which field controls the proration of the first month's rent and when booking credits activate?",
+      "choices": ["Contract Name", "Move-in Date", "Term Type", "Renewal Price"],
+      "answer": [1],
+      "explanation": "Kube contracts → Step 2: the Move-in Date drives both."
+    },
+    {
+      "id": "kube-3",
+      "type": "multi",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "Which settings are correct on the Terms & Company page? (Select all that apply)",
+      "choices": ["Term Type: Fixed Term", "Auto Renew: Off", "Contract Term: 6 or 12", "Renewal Price: Custom Pricing, 4.00% increase", "Renewal Price: Market Rate"],
+      "answer": [0, 2, 3],
+      "explanation": "Kube contracts → Step 2 table. Auto Renew must be On."
+    },
+    {
+      "id": "kube-4",
+      "type": "boolean",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "If “Bill Full Contract Cost at Start of Term” was enabled by mistake on an active contract, you can turn it off with an amendment.",
+      "answer": [1],
+      "explanation": "Kube contracts → Warning: it cannot be disabled by amendment; the contract must be terminated and recreated."
+    },
+    {
+      "id": "kube-5",
+      "type": "boolean",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "After you click Save & Continue, changes on the following pages are saved automatically.",
+      "answer": [0],
+      "explanation": "Kube contracts → Note under Save & Continue."
+    }
+  ]
+}
