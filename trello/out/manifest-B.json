@@ -1,0 +1,35 @@
+[
+  {
+    "module": "Hospitality",
+    "moduleId": "hospitality",
+    "sops": [
+      "keeps-property-tidy-reset-and-organized",
+      "using-canned-responses"
+    ],
+    "quiz": "q-hospitality",
+    "skipped": []
+  },
+  {
+    "module": "Operations",
+    "moduleId": "operations",
+    "sops": [
+      "mail-files-and-sorting-system",
+      "mail-putting-away",
+      "dog-policy",
+      "printwithme-sea",
+      "stamps-com",
+      "door-locks-and-locked-out-code",
+      "parking-rules-and-regulations",
+      "locking-bicycle-storage"
+    ],
+    "quiz": "q-operations",
+    "skipped": [
+      "Understanding of PO, VO, Drop-Ins & Coworking",
+      "Learn who handles PO, VO, Meeting Rooms, & accounting on the team.",
+      "Mail - Sorting",
+      "Checking conference rooms",
+      "Emergency procedures",
+      "Making coffee"
+    ]
+  }
+]

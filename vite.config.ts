@@ -5,5 +5,5 @@ import { defineConfig } from 'vite'
 // Override with VITE_BASE=/ for a root deploy or local preview.
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_BASE ?? '/sop-academy/',
+  base: process.env.VITE_BASE ?? '/ThinkBook/',
 })

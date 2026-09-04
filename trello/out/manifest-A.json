@@ -1,0 +1,62 @@
+[
+  {
+    "module": "90 Day Goals",
+    "moduleId": "90-day-goals",
+    "sops": [
+      "google-reviews",
+      "normal-day-schedule-location-coordinator",
+      "operational-directory"
+    ],
+    "quiz": "q-90-day-goals",
+    "skipped": [
+      "Normal Day Schedule - Location Manager"
+    ]
+  },
+  {
+    "module": "Day 0",
+    "moduleId": "day-0",
+    "sops": [
+      "door-access-seattle",
+      "adp-time-tracking",
+      "kube",
+      "items-to-be-trained-on",
+      "time-off-pto"
+    ],
+    "quiz": "q-day-0",
+    "skipped": [
+      "Welcome Bag",
+      "C3Scan",
+      "Email Login",
+      "Brivo Login",
+      "1Password Login",
+      "Yardi Login",
+      "Trello Login",
+      "PilotoMail Login",
+      "W-9, i9, and copy of ID given to Ben"
+    ]
+  },
+  {
+    "module": "Day 1",
+    "moduleId": "day-1",
+    "sops": [
+      "employee-id-w9-auto-deposit-payroll",
+      "laptop-bookmarks-bar",
+      "lunch-with-a-team-member",
+      "culture-book",
+      "employee-handbook",
+      "conference-room-amenities",
+      "tour-the-building",
+      "arlo-cameras",
+      "hvac-ivu-thinkspace-com"
+    ],
+    "quiz": "q-day-1",
+    "skipped": [
+      "Brivo add members Seattle and Redmond",
+      "History of Thinkspace",
+      "Emergency Contact",
+      "Write Bio",
+      "Building Keys (RED)",
+      "Scheduling conference rooms for members"
+    ]
+  }
+]

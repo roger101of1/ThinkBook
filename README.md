@@ -12,7 +12,7 @@ each module, and the trainer sees progress and results.
 
 ```sh
 npm install
-npm run dev            # http://localhost:5173/sop-academy/
+npm run dev            # http://localhost:5173/ThinkBook/
 ```
 
 Production build + local preview:

@@ -1,0 +1,45 @@
+[
+  {
+    "module": "Technical Skills",
+    "moduleId": "technical-skills",
+    "sops": [
+      "troubleshooting-internet-issues",
+      "printwithme",
+      "voip-phone-basics",
+      "meeting-owl",
+      "power-and-internet-troubleshooting",
+      "installing-printer-drivers",
+      "liftmaster-capxs-red"
+    ],
+    "quiz": "q-technical-skills",
+    "skipped": []
+  },
+  {
+    "module": "Community Management",
+    "moduleId": "community-management",
+    "sops": ["seattle-tech-week"],
+    "quiz": "q-community-management",
+    "skipped": ["Happy Hour for Members", "Waffle Wednesday"]
+  },
+  {
+    "module": "Admin",
+    "moduleId": "admin",
+    "sops": [],
+    "quiz": null,
+    "skipped": ["Thinkspace Apple ID Account"]
+  },
+  {
+    "module": "Personal Development",
+    "moduleId": "personal-development",
+    "sops": ["via-character", "disc-test"],
+    "quiz": "q-personal-development",
+    "skipped": []
+  },
+  {
+    "module": "Things I still need to be trained on",
+    "moduleId": "things-i-still-need-to-be-trained-on",
+    "sops": [],
+    "quiz": null,
+    "skipped": ["Things I still need to be trained on"]
+  }
+]

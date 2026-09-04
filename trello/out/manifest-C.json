@@ -1,0 +1,44 @@
+[
+  {
+    "module": "Team Work",
+    "moduleId": "team-work",
+    "sops": [
+      "cricut-making-t-shirts-and-company-logos",
+      "prepare-for-daily-huddle"
+    ],
+    "quiz": "q-team-work",
+    "skipped": [
+      "Sit with each team member for ten minutes.",
+      "Communication"
+    ]
+  },
+  {
+    "module": "Management",
+    "moduleId": "management",
+    "sops": [
+      "one-on-one-with-manager",
+      "meeting-format-for-one-on-ones",
+      "review-opening-checklist",
+      "allstate-passports",
+      "things-we-can-fix-ourselves",
+      "inventory-where-we-store-things"
+    ],
+    "quiz": "q-management",
+    "skipped": []
+  },
+  {
+    "module": "Property Management",
+    "moduleId": "property-management",
+    "sops": [
+      "items-property-management-must-be-called-to-fix",
+      "property-management-contacts",
+      "gender-neutral-bathroom-maintenance-training",
+      "viewglass-for-seattle-crosstraining",
+      "vendor-spreadsheet"
+    ],
+    "quiz": "q-property-management",
+    "skipped": [
+      "Property management requests"
+    ]
+  }
+]
