@@ -7,12 +7,13 @@
       "id": "team-work-1",
       "sopId": "prepare-for-daily-huddle",
       "prompt": "It is 8:15 am on a Tuesday and you are in a meeting with a member that is running long. What do you do about the Daily Huddle, and when does it start and end?",
-      "modelAnswer": "The Daily Huddle starts promptly at 8:20 am and ends at 8:30 am, and being on time is how we respect each other's time. Invite the person you are meeting with to join the Daily Huddle and explain that it is the most important meeting of the day, our one time together, because togetherness is a core value.",
+      "modelAnswer": "The Daily Huddle starts promptly at 8:20 am and ends at 8:30 am, and being on time is how we respect each other's time. Invite the person you are meeting with to join the Daily Huddle and explain that it is the most important meeting of the day, our one time together, because togetherness is a core value. The huddle runs Monday, Tuesday, Thursday and Friday; there is no huddle on Wednesday.",
       "keyPoints": [
         "Starts promptly at 8:20 am",
         "Ends at 8:30 am",
         "Invite the person you are meeting with to the huddle",
-        "Explain it is the most important meeting of the day; togetherness is a core value"
+        "Explain it is the most important meeting of the day; togetherness is a core value",
+        "No huddle on Wednesday (M/T/Th/F only)"
       ]
     },
     {

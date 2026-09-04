@@ -21,7 +21,7 @@ The Daily Huddle is the team's one time together each day. This SOP tells you wh
 | Timer | A designated person times each share |
 | Time per person | 60 seconds maximum |
 
-> **Note for the trainer:** the linked doc says "Daily 8:20 AM"; the Trello card title says M/T/TH/F. Confirm with the new coordinator whether Wednesday is skipped.
+> **Confirmed (Roger, 2026-09-04):** the huddle runs **Monday, Tuesday, Thursday and Friday**. There is **no huddle on Wednesday**, even though the linked doc says "Daily".
 
 ## Why we take it seriously
 
