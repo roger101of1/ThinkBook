@@ -1,0 +1,79 @@
+{
+  "id": "q-hospitality",
+  "title": "Hospitality Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "hospitality-1",
+      "sopId": "keeps-property-tidy-reset-and-organized",
+      "prompt": "You are running low on cleaning supplies and would also like a privacy filter for the front-desk monitor. Who do you contact, and what is the standing expectation for how the office should look?",
+      "modelAnswer": "Let KB know; she orders office supplies, cleaning supplies, and privacy screen protectors that block others from seeing your screen. The standing expectation is that the office always looks clean and orderly, so reset spaces as you go rather than waiting for a scheduled tidy.",
+      "keyPoints": [
+        "Ask KB; she orders office and cleaning supplies",
+        "KB also orders privacy screen protectors",
+        "Always keep the office looking clean and orderly"
+      ]
+    },
+    {
+      "id": "hospitality-2",
+      "sopId": "using-canned-responses",
+      "prompt": "A Seattle prospect you just spoke with on the phone wants Virtual Office pricing in writing. Which Missive template do you use, and what four price points does it contain?",
+      "modelAnswer": "Use [VO Office after phone call with potential client] (SEA VO – Sign up after Phone Call). It lists $99/month for the basic address-plus-mail plan, $996/year (which works out to $83/month), $149/month including coworking, and $229/month including coworking plus meeting rooms, with members getting rooms at $25/hour. It also gives three sign-up methods: phone 425-654-9090, email with company name, account holder and mailing address, or the online Seattle sign-up link.",
+      "keyPoints": [
+        "Template: [VO Office after phone call with potential client]",
+        "$99/month basic (address + mail)",
+        "$996/year = $83/month",
+        "$149/month includes coworking",
+        "$229/month includes coworking + meeting rooms ($25/hour rooms)"
+      ]
+    },
+    {
+      "id": "hospitality-3",
+      "sopId": "using-canned-responses",
+      "prompt": "A new Redmond VO member asks what IDs they need for Piloto compliance and why it is required. Explain the rule and give examples of what is and is not accepted.",
+      "modelAnswer": "Compliance is mandatory under the USPS CMRA regulation. The member must upload two valid IDs, one of which must be a government photo ID; expired documents are not accepted and the same document cannot be used twice. Photo IDs include a driver's license, passport, Permanent Resident Card, or US university ID; proof-of-address documents include a current lease, mortgage or deed of trust, insurance policy, vehicle registration, or voter card. Social Security cards, credit cards, and birth certificates are never accepted, and mail services may be suspended for non-compliance.",
+      "keyPoints": [
+        "Mandatory under USPS CMRA regulation",
+        "Two valid IDs, one a government photo ID",
+        "Expired documents not accepted; same document cannot be used twice",
+        "Never accepted: Social Security cards, credit cards, birth certificates",
+        "Mail services may be suspended for non-compliance"
+      ]
+    },
+    {
+      "id": "hospitality-4",
+      "sopId": "using-canned-responses",
+      "prompt": "Explain how the Redmond MyQ call box works for a first-time member, as described in the [Redmond: MyQ Callbox] template.",
+      "modelAnswer": "You add the member to the MyQ call box directory at the front entrance with up to two phone numbers; a visitor selects the company name and MyQ rings the first number, then the second. The member unlocks the door by pressing 9 on their phone keypad. MyQ is additional to the Brivo pass, not a replacement, and the team can also use a member code at the main entrance. Ask the member which two numbers to add.",
+      "keyPoints": [
+        "Visitor selects the company name at the call box",
+        "Member presses \"9\" on the phone keypad to unlock",
+        "Up to two phone numbers; rings the first, then the second",
+        "Brivo pass still works; MyQ is additional, not a replacement"
+      ]
+    },
+    {
+      "id": "hospitality-5",
+      "sopId": "using-canned-responses",
+      "prompt": "A Redmond prospect asks what the Large Conference Room costs and what discount a longer lease gets. Answer using the figures from the [Abby - Site Tour Follow Up Email] template.",
+      "modelAnswer": "The Large Conference Room is $75/hour or $500/day for members and $100/hour or $700/day for non-members. Office pricing in that template is based on a 6-month lease, and a 12-month lease gets a $100/month discount. The deposit equals one month's rent, payable by card or ACH, with the lease signed online.",
+      "keyPoints": [
+        "Members: $75/hour or $500/day",
+        "Non-members: $100/hour or $700/day",
+        "12-month lease gets $100/month discount (pricing based on 6-month lease)",
+        "Deposit equals one month's rent"
+      ]
+    },
+    {
+      "id": "hospitality-6",
+      "sopId": "using-canned-responses",
+      "prompt": "A member's card declined and they ask how to fix it. Explain the payment options and the fee difference you would mention in the DW payment templates, and name one thing you must never paste into an email.",
+      "modelAnswer": "Tell them to log in to the Deskworks portal at thinkspace.satellitedeskworks.com and update their payment method, or call and update it by phone. Credit cards carry a small fee while ACH is free. Never paste a member's username or password into an email; the credentials in the original Welcome template are redacted and must not be reproduced.",
+      "keyPoints": [
+        "Log in to thinkspace.satellitedeskworks.com to update, or call and update by phone",
+        "Credit card has a small fee; ACH is free",
+        "Never reproduce a member's username or password"
+      ]
+    }
+  ]
+}

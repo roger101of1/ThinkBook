@@ -1,0 +1,29 @@
+{
+  "id": "q-personal-development",
+  "title": "Personal Development Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "personal-development-1",
+      "sopId": "via-character",
+      "prompt": "Explain what the VIA Character Strengths survey measures and what you do with your results.",
+      "modelAnswer": "The VIA survey is a free online questionnaire from the VIA Institute on Character that ranks your 24 character strengths from strongest to weakest. You register a free account at viacharacter.org, complete the survey, then save your results and share the summary with your manager.",
+      "keyPoints": [
+        "Ranks your 24 character strengths",
+        "Register a free account at viacharacter.org",
+        "Share the results summary with your manager"
+      ]
+    },
+    {
+      "id": "personal-development-2",
+      "sopId": "disc-test",
+      "prompt": "What are the four traits in the DISC assessment, and where do you take it?",
+      "modelAnswer": "DISC stands for Dominance, Influence, Steadiness and Conscientiousness. You take the free assessment at the Tony Robbins DISC link on the card (tonyrobbins.com/disc), read the DISC.pdf attached to the Trello card, and share your results with your manager.",
+      "keyPoints": [
+        "Dominance, Influence, Steadiness, Conscientiousness",
+        "Free assessment at tonyrobbins.com/disc",
+        "Read the DISC.pdf attachment and share results with your manager"
+      ]
+    }
+  ]
+}

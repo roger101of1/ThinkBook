@@ -1,0 +1,74 @@
+{
+  "id": "q-day-0",
+  "title": "Day 0 Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "day-0-1",
+      "sopId": "kube",
+      "prompt": "Three members come to the desk with Kube questions: one wants a conference room booked, one has a question about a charge on their invoice, and one wants to change their contract. Who handles each?",
+      "modelAnswer": "You make the conference room booking yourself in Kube; that is the skill you learn on Day 0. The billing question about the invoice charge goes to Abby. Everything else, including the contract change, goes to KB.",
+      "keyPoints": [
+        "Conference room bookings: you do them in Kube",
+        "Billing: refer to Abby",
+        "All other inquiries: refer to KB"
+      ]
+    },
+    {
+      "id": "day-0-2",
+      "sopId": "time-off-pto",
+      "prompt": "You want to take a long weekend next month. Explain the steps to request it and the notice required.",
+      "modelAnswer": "Submit the time off request in your ADP app, and also email Abby so she can add it to the PTO calendar. Give at least 2 weeks notice.",
+      "keyPoints": [
+        "Submit in the ADP app",
+        "Also email Abby for the PTO calendar",
+        "At least 2 weeks notice"
+      ]
+    },
+    {
+      "id": "day-0-3",
+      "sopId": "time-off-pto",
+      "prompt": "How does sick time accrue, what can you use it for, and why does Thinkspace offer it?",
+      "modelAnswer": "You accrue 1 hour of sick time for every 40 hours worked. You can use it for doctor appointments or when you are sick. It is required by Washington State law.",
+      "keyPoints": [
+        "1 hour of sick time per 40 hours worked",
+        "Use for doctor appointments or when sick",
+        "WA State law"
+      ]
+    },
+    {
+      "id": "day-0-4",
+      "sopId": "items-to-be-trained-on",
+      "prompt": "A member cannot get the printer installed on their Mac and asks you to fix it. What do you do, and what other printer-related skills are on your training list?",
+      "modelAnswer": "Have them call service at Konica; printer installation on a PC or Mac is not something you troubleshoot yourself. Your training list also includes setting up printer codes and resetting a locked-out code, along with the Meeting Owl, emergency procedures, and power and internet troubleshooting.",
+      "keyPoints": [
+        "Printer install on PC or Mac: have them call Konica service",
+        "Setting up printer codes",
+        "Resetting a locked-out code",
+        "Also on the list: Meeting Owl, emergency procedures, power and internet troubleshooting"
+      ]
+    },
+    {
+      "id": "day-0-5",
+      "sopId": "adp-time-tracking",
+      "prompt": "Explain how and where you record your working time each day, and the two things about time entry that can get you fired.",
+      "modelAnswer": "You clock in and out and log breaks and lunch in ADP, either the app on your cell phone or the website at signin.adp.com; the day starts with a 7:45am website log-in. Time must be entered in real time, not in advance or delayed. Entering time for someone else or falsifying hours leads to discipline up to and including termination. Updates are due before 8:00am on the Monday before payday.",
+      "keyPoints": [
+        "ADP app on cell phone or the website (signin.adp.com)",
+        "Clock in, breaks, lunch, clock out in real time",
+        "Entering time for another person or falsifying hours can mean termination",
+        "Time clock updates due before 8:00am Monday before payday"
+      ]
+    },
+    {
+      "id": "day-0-6",
+      "sopId": "door-access-seattle",
+      "prompt": "Who provides your Seattle door access, and what is the rule about door codes?",
+      "modelAnswer": "Hannah provides your Seattle door access; you do not set it up yourself. Never share your access and never write door codes anywhere. Codes live only in 1Password or the Door Codes sheet.",
+      "keyPoints": [
+        "Hannah provides Seattle door access",
+        "Never write door codes anywhere; 1Password or the Door Codes sheet only"
+      ]
+    }
+  ]
+}

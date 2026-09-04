@@ -1,0 +1,130 @@
+{
+  "id": "q-technical-skills",
+  "title": "Technical Skills Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "technical-skills-1",
+      "sopId": "printwithme",
+      "prompt": "You need to print a document for the team using PrintWithMe. Walk through what you do in the web app before you get up from your desk.",
+      "modelAnswer": "Open app.printwithme.com/print and select a printer, then type in Thinkspace as the location. Click \"Start a print job here\" and upload the document. Press \"Apply a discount code\", type in the staff promo code from 1Password, and submit. The app gives you a release code, which you must write down before going to the printer.",
+      "keyPoints": [
+        "Select a printer and enter Thinkspace as the location",
+        "Click \"Start a print job here\" and upload the document",
+        "Press \"Apply a discount code\" and enter the staff promo code (from 1Password)",
+        "Submit, then write down the release code the app gives you"
+      ]
+    },
+    {
+      "id": "technical-skills-2",
+      "sopId": "printwithme",
+      "prompt": "You are standing at the printer with your PrintWithMe release code. What do you do to get your document, and why does the release code matter?",
+      "modelAnswer": "Select \"Secure release\" on the printer, type in the release code, and print. The release code is the only way to get the job out of the printer, so if you lose it you have to submit the job again.",
+      "keyPoints": [
+        "Select \"Secure release\" on the printer",
+        "Type in the release code and print",
+        "Losing the code means submitting the job again"
+      ]
+    },
+    {
+      "id": "technical-skills-3",
+      "sopId": "power-and-internet-troubleshooting",
+      "prompt": "A windstorm hits Redmond overnight and you want to know from home whether the building has lost power or Internet. List the checks you run, and state the rule about how many of them you must do.",
+      "modelAnswer": "You must follow all six checks, because no single one guarantees the answer. Look at the PSE Outage Map, check iVU (ivu.thinkspace.com), check the Arlo cameras (my.arlo.com), check the Ziply outage map, check the Xfinity Outage Map, and log in to Brivo (access.brivo.com).",
+      "keyPoints": [
+        "Follow ALL six checks; no single one guarantees the answer",
+        "PSE Outage Map",
+        "iVU and Arlo cameras",
+        "Ziply outage map and Xfinity Outage Map",
+        "Brivo (access.brivo.com)"
+      ]
+    },
+    {
+      "id": "technical-skills-4",
+      "sopId": "power-and-internet-troubleshooting",
+      "prompt": "iVU will not load and the Arlo cameras show no video. Explain why that does not tell you on its own whether it is a power outage or an Internet outage, and what Brivo would add.",
+      "modelAnswer": "Both iVU and Arlo use power and Internet, so either service failing takes them down. You cannot tell which one is out from those two alone. Brivo lets you log in but shows communication errors connecting to the controllers when it is down, which points to a possible power outage. The PSE map helps too but is not 100% foolproof.",
+      "keyPoints": [
+        "iVU and Arlo both use power and Internet, so either outage takes them down",
+        "Brivo showing com errors to the controllers means Brivo is down and there may be a power outage",
+        "PSE Outage Map is not 100% foolproof"
+      ]
+    },
+    {
+      "id": "technical-skills-5",
+      "sopId": "meeting-owl",
+      "prompt": "A member in Redmond borrows the Meeting Owl at 10 am. What do you tell them about returning it, and who do you email?",
+      "modelAnswer": "Tell them it is free to use and they must return it by the end of the day, before you go home. Then notate the use by emailing Abby and KB. At Seattle you would email Hannah instead.",
+      "keyPoints": [
+        "Return by the end of the day, before you go home",
+        "Redmond: email Abby and KB to notate the use",
+        "Seattle: email Hannah"
+      ]
+    },
+    {
+      "id": "technical-skills-6",
+      "sopId": "meeting-owl",
+      "prompt": "A member asks to use the Meeting Owl at 4:30 pm. What is different about how you handle it?",
+      "modelAnswer": "Because the request is after 4 pm, you notate that in your email to Abby and KB (Redmond) or Hannah (Seattle). Tell the member to leave the Owl in the conference room they used and to secure the door by closing it, rather than returning it to you.",
+      "keyPoints": [
+        "Notate the after-4pm request in the email",
+        "Member leaves the Owl in the conference room they used",
+        "Member secures the door by closing it"
+      ]
+    },
+    {
+      "id": "technical-skills-7",
+      "sopId": "installing-printer-drivers",
+      "prompt": "A member cannot add the office printer to their Mac and asks you to install the driver. What do you do, and what two pieces of information do you give them?",
+      "modelAnswer": "Direct the member to call Pacific Automation Service at 206-576-0256, since we pay them to service the printer and help people add it to their PC or Mac. Give the member the Equipment ID 8C11830 to quote.",
+      "keyPoints": [
+        "Direct the member to call Pacific Automation Service",
+        "Service number 206-576-0256",
+        "Equipment ID 8C11830"
+      ]
+    },
+    {
+      "id": "technical-skills-8",
+      "sopId": "installing-printer-drivers",
+      "prompt": "A member says they do not want anyone accessing their laptop remotely for confidentiality reasons. What option does Pacific Automation offer?",
+      "modelAnswer": "Pacific Automation can come out and install the printer in person instead of connecting remotely. Tell the member to ask for an in-person visit when they call.",
+      "keyPoints": [
+        "Pacific Automation can come out and install in person",
+        "In-person is the option for members who refuse remote access for confidentiality"
+      ]
+    },
+    {
+      "id": "technical-skills-9",
+      "sopId": "voip-phone-basics",
+      "prompt": "A member's VOIP desk phone stops working. Separately, another member asks whether they can get a phone in their office. Who handles each request?",
+      "modelAnswer": "For any phone issue, call Skynet at 360-802-6657. For a member who wants a phone in their office, let KB, Hannah or Abby know and they will help the member.",
+      "keyPoints": [
+        "Phone issues go to Skynet",
+        "Skynet number is 360-802-6657",
+        "Phone requests for an office go to KB, Hannah or Abby"
+      ]
+    },
+    {
+      "id": "technical-skills-10",
+      "sopId": "liftmaster-capxs-red",
+      "prompt": "The callbox at the Redmond main entrance is misbehaving. What can you do, and how does it differ if the problem is at Seattle?",
+      "modelAnswer": "At Redmond the Liftmaster CAPXS callbox is at the Main Entrance and we can reset it ourselves using the reset code from 1Password; KB trains you on the reset first. At Seattle, call Charmain at JLL and let Hannah or Peter know.",
+      "keyPoints": [
+        "Redmond: the callbox is at the Main Entrance and we can reset it ourselves",
+        "The reset code is in 1Password and KB trains you",
+        "Seattle: call Charmain at JLL",
+        "Seattle: also tell Hannah or Peter"
+      ]
+    },
+    {
+      "id": "technical-skills-11",
+      "sopId": "troubleshooting-internet-issues",
+      "prompt": "Who trains you on basic Internet troubleshooting, and what written resource do you use in the meantime?",
+      "modelAnswer": "Peter runs a training session on basic Internet troubleshooting. Until then, use the Power and Internet Troubleshooting SOP and its six checks to work out whether an outage is power or Internet.",
+      "keyPoints": [
+        "Training with Peter",
+        "Use the Power and Internet Troubleshooting SOP in the meantime"
+      ]
+    }
+  ]
+}

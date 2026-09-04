@@ -92,10 +92,10 @@ export function pathComplete(path: LearningPath, progress: LearnerProgress): boo
   return path.modules.every((m) => moduleComplete(progress, m))
 }
 
-/** Is this SOP reachable given the locking rules? */
-export function sopUnlocked(path: LearningPath, progress: LearnerProgress, sopId: string): boolean {
-  const states = moduleStates(path, progress)
-  const owner = states.find((s) => s.module.sops.includes(sopId))
-  if (!owner) return true // SOPs outside the path (reference material) are always readable
-  return owner.status !== 'locked'
+/**
+ * SOPs are always readable — ThinkBook doubles as the reference manual.
+ * Locking applies to module *checks* only (see moduleStates → status 'locked').
+ */
+export function sopUnlocked(_path: LearningPath, _progress: LearnerProgress, _sopId: string): boolean {
+  return true
 }

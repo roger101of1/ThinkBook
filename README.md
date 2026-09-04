@@ -1,4 +1,4 @@
-# SOP Academy
+# ThinkBook
 
 Trainual-style onboarding and SOP reference for Thinkspace's **Hospitality
 Coordinator** role. Trainees read SOPs in order, pass a check at the end of

@@ -1,0 +1,113 @@
+{
+  "id": "q-property-management",
+  "title": "Property Management Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "property-management-1",
+      "sopId": "items-property-management-must-be-called-to-fix",
+      "prompt": "In Seattle, which three building items must property management be called to fix, and who do you call for a maintenance emergency?",
+      "modelAnswer": "In Seattle property management handles the Butterfly callbox at the main entrance outside, the Floor 1 toilets, and HVAC heating and cooling issues. For all maintenance emergencies call Hannah 925-719-9653, Peter 206-601-4256, and John Demaree 206-510-6764, and save those numbers in your phone.",
+      "keyPoints": [
+        "Butterfly (callbox at the main entrance outside)",
+        "Toilets on Floor 1",
+        "HVAC heating and cooling",
+        "Hannah 925-719-9653, Peter 206-601-4256, John Demaree 206-510-6764",
+        "Save these numbers"
+      ]
+    },
+    {
+      "id": "property-management-2",
+      "sopId": "items-property-management-must-be-called-to-fix",
+      "prompt": "The garage gate in Redmond is stuck and it is a maintenance emergency. Who owns this problem and which two people do you call?",
+      "modelAnswer": "The garage gate is a property management item in Redmond, along with plumbing, roofing, windows, fire alarm, Brivo issues, elevators, parking lot repairs, cars and towing, and anything related to the building. For all Redmond maintenance emergencies call Peter Chee at 206-601-4256 and Tom Hill at 425-626-0126.",
+      "keyPoints": [
+        "Garage gate is a property management item in Redmond",
+        "Peter Chee 206-601-4256",
+        "Tom Hill 425-626-0126"
+      ]
+    },
+    {
+      "id": "property-management-3",
+      "sopId": "property-management-contacts",
+      "prompt": "Who owns and who manages the Redmond building, and how do you reach the property management contact there?",
+      "modelAnswer": "Peter (Peter Chee) owns the Redmond building and Coast manages it. The contact at Coast is Thomas Hill: office 425-339-3638, mobile 425-626-0126.",
+      "keyPoints": [
+        "Peter owns the Redmond building",
+        "Coast manages it",
+        "Thomas Hill with Coast",
+        "Office 425-339-3638, mobile 425-626-0126"
+      ]
+    },
+    {
+      "id": "property-management-4",
+      "sopId": "property-management-contacts",
+      "prompt": "It is 6:30 PM in Seattle and there is a building issue. Who do you call, and who would you have called at 2 PM?",
+      "modelAnswer": "After 5 PM in Seattle you call John Demaree Services at 206-923-1911. During business hours (for example at 2 PM) you call Charmain Torres on her mobile at 425-241-0663.",
+      "keyPoints": [
+        "After 5 PM: John Demaree Services 206-923-1911",
+        "Business hours: Charmain Torres, mobile 425-241-0663"
+      ]
+    },
+    {
+      "id": "property-management-5",
+      "sopId": "gender-neutral-bathroom-maintenance-training",
+      "prompt": "What are the two training requirements tied to the gender neutral bathrooms in Seattle, and who needs each one?",
+      "modelAnswer": "Members in SEA need to be trained on what is acceptable and what is not acceptable in the gender neutral bathrooms. Employees need to be trained on what happens if there is a power outage or a leak in the 1F (Floor 1) bathrooms.",
+      "keyPoints": [
+        "Members in SEA: what is acceptable and not acceptable",
+        "Employees: what happens in a power outage or a leak",
+        "Applies to the 1F (Floor 1) bathrooms"
+      ]
+    },
+    {
+      "id": "property-management-6",
+      "sopId": "viewglass-for-seattle-crosstraining",
+      "prompt": "A Private Office member in Seattle asks for control of their window tint. Explain who can get access, how you request it, and who you contact.",
+      "modelAnswer": "Members are not automatically granted access, but Private Office and Dedicated Desk members can request it (staff already have access to all zones and can adjust a member's tint temporarily, most often for Office Divvy members). To grant access, email the ViewGlass rep, Alex Palomarez at alex.palomarez@view.com, with the member's name, email, and the zones needed.",
+      "keyPoints": [
+        "Members are not automatically granted access",
+        "Private Office and Dedicated Desk members can request it",
+        "Email the rep with name, email and zones needed",
+        "Rep: Alex Palomarez, alex.palomarez@view.com"
+      ]
+    },
+    {
+      "id": "property-management-7",
+      "sopId": "viewglass-for-seattle-crosstraining",
+      "prompt": "Walk a member through setting up the ViewGlass app on their phone, step by step. Where do they get the password?",
+      "modelAnswer": "1) Download View's Dynamic Glass app (blue icon). 2) In Settings enter the IP address 50.251.196.13 with the dots. 3) Wait for the initial server connection; the app can run in the background. 4) Tap the Settings icon at the bottom-right, then Login. 5) Login is their assigned login in lower case and the password is the shared app password in lower case, which you look up in 1Password and never write into the SOP or a Trello card.",
+      "keyPoints": [
+        "Download the Dynamic Glass app (blue icon)",
+        "Enter the IP address 50.251.196.13 in Settings",
+        "Wait for the initial server connection",
+        "Settings icon bottom-right, then Login",
+        "Login and password in lower case; password is in 1Password"
+      ]
+    },
+    {
+      "id": "property-management-8",
+      "sopId": "viewglass-for-seattle-crosstraining",
+      "prompt": "Decode the ViewGlass zone name \"2E Coworking 1B\". What does each part mean?",
+      "modelAnswer": "2 is the floor. E is the direction, the windows facing Lake Union. Coworking is the room. 1 is the window set closest to the stage (numbers ascend, with 4 nearest the huddle rooms). B means the Bottom pane, and T would mean Top.",
+      "keyPoints": [
+        "2 = floor",
+        "E = direction, windows facing Lake Union",
+        "Coworking = room",
+        "1 = window set closest to the stage; 4 is nearest the huddle rooms",
+        "B = Bottom, T = Top"
+      ]
+    },
+    {
+      "id": "property-management-9",
+      "sopId": "vendor-spreadsheet",
+      "prompt": "Something in Redmond is broken and it is not on the fix-it-ourselves list or the property management list. What is the Redmond Vendor List and how do you use it?",
+      "modelAnswer": "The Redmond Vendor List is the spreadsheet of who we use to fix things at the Redmond location. First rule out things we fix ourselves and items property management must handle; if it is neither, open the Redmond Vendor List, find the vendor for that type of work, and contact them.",
+      "keyPoints": [
+        "Spreadsheet of who we use to fix things in Redmond",
+        "Check the fix-ourselves and property management lists first",
+        "Find and contact the vendor for that type of work"
+      ]
+    }
+  ]
+}

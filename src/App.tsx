@@ -13,8 +13,8 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <NavLink to="/" className="brand">
-          <span className="mark">S</span>
-          <span className="name">SOP Academy</span>
+          <span className="mark">T</span>
+          <span className="name">ThinkBook</span>
           <span className="role">{learningPath.role}</span>
         </NavLink>
         <nav>

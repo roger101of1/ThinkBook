@@ -1,0 +1,149 @@
+{
+  "id": "q-operations",
+  "title": "Operations Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "operations-1",
+      "sopId": "mail-files-and-sorting-system",
+      "prompt": "Name the two systems used to track member mail and explain how you get access to each.",
+      "modelAnswer": "Member mail is managed in c3scan (the admin dashboard at c3scan.thinkspace.com, sign in with the staff login kept in 1Password) and in Piloto, the platform Virtual Office members use to view, forward, scan, or shred mail. Piloto access comes by invitation link; the card notes the link was sent to Peri@thinkspace.com, so ask your manager to send an invite to your own address if you have not received one.",
+      "keyPoints": [
+        "c3scan admin dashboard at c3scan.thinkspace.com",
+        "c3scan login is in 1Password",
+        "Piloto access comes by invitation link (ask your manager if you have none)"
+      ]
+    },
+    {
+      "id": "operations-2",
+      "sopId": "mail-putting-away",
+      "prompt": "Describe the training ramp for putting away mail. On which day does supervision stop?",
+      "modelAnswer": "On Day 1 and Day 2 you put away mail with a trainer supervising. On Day 3 you put it away without supervision, and from Day 4 onward it is fully yours, unsupervised, every day. Supervision ends after Day 2.",
+      "keyPoints": [
+        "Days 1 and 2: with supervision",
+        "Day 3: without supervision",
+        "Day 4 onward: without supervision every day"
+      ]
+    },
+    {
+      "id": "operations-3",
+      "sopId": "dog-policy",
+      "prompt": "A Private Office member asks what it will cost to bring their dog. Give the fees from the FAQ and note what the lease addendum says about the initial fee.",
+      "modelAnswer": "Per the FAQ, a PO or FTCW member pays a $300 nonrefundable initial fee plus $50 per month pet rent, and janitorial clean-up and the outdoor poop bags are not included; that is an extra $100 per month. Pet rent is added to their monthly invoices. Note the lease addendum describes the $300 as a one-time refundable pet fee, so confirm with your manager which wording is current.",
+      "keyPoints": [
+        "$300 initial fee (FAQ: nonrefundable; addendum: refundable)",
+        "$50/month pet rent",
+        "$100/month for janitorial clean-up and poop bags",
+        "Charges are added to the monthly invoice"
+      ]
+    },
+    {
+      "id": "operations-4",
+      "sopId": "dog-policy",
+      "prompt": "Where in the building is a member's dog allowed, and where is it not? Include the leash rule.",
+      "modelAnswer": "The dog is only allowed on the premises in the physical presence of the owner and only in the owner's office. It must be leashed at all times and in continuous full control of the owner, including in hallways, stairways, and elevators. Dogs are not permitted in common areas such as kitchen areas, meeting rooms, and lobbies, and the employee policy also excludes the front desk area. Dogs may not come to events, drop-in coworking, or meetings unless they are service animals.",
+      "keyPoints": [
+        "Only in the owner's office, with the owner present",
+        "Leashed at all times and under full control",
+        "Not in kitchen areas, meeting rooms, lobbies (or the front desk area)",
+        "No dogs at events, drop-ins, or meetings unless a service animal"
+      ]
+    },
+    {
+      "id": "operations-5",
+      "sopId": "dog-policy",
+      "prompt": "You are an employee who wants to bring your dog to the desk tomorrow. What rules apply, and what is the escalation path if a dog causes a problem?",
+      "modelAnswer": "You must ask your manager for permission every single time, even when covering in an emergency; bringing a dog is a once-in-a-blue-moon, emergency-only thing and the dog should mostly not be at the front desk. Do not feed the dog at the front desk, it must be well behaved, potty trained and quiet, it cannot go on sales tours, and no dogs under two years old. Employees also face extra restricted breeds: Siberian Huskies, German Shepherds, and Saint Bernards. If a dog causes a problem, first talk with the pet owner, then escalate to the owner's supervisor, then to Human Resources.",
+      "keyPoints": [
+        "Ask your manager for permission each time",
+        "No dogs under two years; no dogs on sales tours; do not feed at the front desk",
+        "Extra employee restricted breeds: Siberian Huskies, German Shepherds, Saint Bernards",
+        "Escalation: talk with the owner, then their supervisor, then Human Resources"
+      ]
+    },
+    {
+      "id": "operations-6",
+      "sopId": "dog-policy",
+      "prompt": "List at least four of the restricted breeds in the member addendum, and name three documents a member must provide for their tenant file.",
+      "modelAnswer": "Restricted breeds or mixes include Pitbull Terriers, Mastiffs, Rottweilers, Staffordshire Terriers, Chow Chows, Presa Canarios, Wolf-hybrids, and Cane Corso; a licensed vet may be required to verify breed. For the tenant file the member must provide a photograph of the dog, vaccine certification, and spay/neuter certification. Dogs over 6 months that are not spayed or neutered are excluded.",
+      "keyPoints": [
+        "Restricted: Pitbull Terriers, Mastiffs, Rottweilers, Staffordshire Terriers, Chow Chows, Presa Canarios, Wolf-hybrid, Cane Corso",
+        "Photograph of the dog",
+        "Vaccine certification",
+        "Spay/neuter certification"
+      ]
+    },
+    {
+      "id": "operations-7",
+      "sopId": "stamps-com",
+      "prompt": "Where do you find the Stamps.com logins, and what training topic does the card ask you to discuss?",
+      "modelAnswer": "There are separate Stamps.com accounts for Redmond and Seattle, and both logins are in 1Password. Make sure you are in the account for your location before printing postage. The card asks you to discuss creating labels for members, using Rick Miller as the example.",
+      "keyPoints": [
+        "Redmond login in 1Password",
+        "Seattle login in 1Password",
+        "Discuss creating labels for members such as Rick Miller"
+      ]
+    },
+    {
+      "id": "operations-8",
+      "sopId": "door-locks-and-locked-out-code",
+      "prompt": "A Redmond member emails that they are locked out. Walk through what you do, including how you record it.",
+      "modelAnswer": "Locked-out members email Lockedout@thinkspace.com. After the email arrives you update the code on the lockbox by the elevator on floor 1 and give the member the new code. Then you record the change in the Locked out Lockbox Code sheet as a new row with the date, code, member who requested it, and code creator. Old rows are never removed so old codes are not reused, and the code is never written anywhere else.",
+      "keyPoints": [
+        "Member emails Lockedout@thinkspace.com",
+        "Update the lockbox by the elevator on floor 1",
+        "Record as a NEW row: Date, Code, Member Who Requested, Code Creator",
+        "Never remove old entries; never write the code elsewhere"
+      ]
+    },
+    {
+      "id": "operations-9",
+      "sopId": "door-locks-and-locked-out-code",
+      "prompt": "Explain the steps to add a new member code on the Redmond MyQ call box and the two rules printed on the sheet about codes. Do not state any actual code.",
+      "modelAnswer": "Choose a new non-sequential 4-digit 9000-series member code, then at the keypad enter the master code, press L, enter the location code (for example 01), press L again, and enter the new user access code, which is the same as the member code. Add a new row to Tab 1 of the Door Codes sheet with the company, member code, MyQ code and up to two access phone numbers. The sheet's rules are: generate non-sequential codes, and never give out the master code.",
+      "keyPoints": [
+        "Sequence: master code, L, location code, L, new user access code",
+        "New user access code is the same as the member code",
+        "Record a new row in Tab 1 of the Door Codes sheet",
+        "GENERATE NON-SEQUENTIAL CODES",
+        "NEVER GIVE OUT THE MASTER CODE"
+      ]
+    },
+    {
+      "id": "operations-10",
+      "sopId": "door-locks-and-locked-out-code",
+      "prompt": "How does door access differ between SEA and RED, and where do the Redmond master codes live?",
+      "modelAnswer": "Seattle has all keypad locks or uses a Door App, and Hannah will brief you on it. Redmond master codes and all other codes are in the Operational Directory via the Door Codes sheet, and the office master codes are also saved in 1Password. Every code change is recorded as a new entry on the sheet without removing the old one.",
+      "keyPoints": [
+        "SEA: all keypad locks or a Door App; Hannah briefs you",
+        "RED: codes in the Operational Directory / Door Codes sheet",
+        "Office master codes also saved in 1Password",
+        "Record every change as a new entry, never remove old ones"
+      ]
+    },
+    {
+      "id": "operations-11",
+      "sopId": "parking-rules-and-regulations",
+      "prompt": "At Redmond, a member's client arrives and Visitor Parking is full, then later the whole top lot is full. What do you do in each case, and what may members never do in the garage?",
+      "modelAnswer": "If Visitor Parking is full, members' clients can park anywhere on the top lot. If the top lot is also full, you can open the gate and let the clients park underneath the building. Otherwise the top lot and underground parking are permit only and not a free for all. Members are not allowed to store their vehicles inside the parking garage.",
+      "keyPoints": [
+        "Visitor Parking full: clients park anywhere on top",
+        "Top lot full: open the gate and let clients park underneath",
+        "Top lot and underground are Permit Only except Visitor spaces",
+        "Members may not store vehicles in the garage"
+      ]
+    },
+    {
+      "id": "operations-12",
+      "sopId": "parking-rules-and-regulations",
+      "prompt": "A Redmond member has more employees than parking passes. What options can you offer, at what prices, and what must you record for every member?",
+      "modelAnswer": "They can buy a parking pass from the neighbor next door for $85/month, or rent a Thinkspace tandem parking space for $100/month, which must be assigned to a specific member. For every single member you must assign a parking pass and log their license plate number.",
+      "keyPoints": [
+        "Neighbor parking pass: $85/month",
+        "Thinkspace tandem space: $100/month, must be assigned",
+        "Assign a parking pass to every member",
+        "Log every member's license plate number"
+      ]
+    }
+  ]
+}

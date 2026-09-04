@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { allSops, learningPath, moduleForSop } from '../lib/content'
-import { sopUnlocked } from '../lib/progress'
 import { searchSops } from '../lib/search'
 import { useProgress } from '../lib/store'
 import { ai } from '../lib/ai'
@@ -21,7 +20,7 @@ export default function LibraryPage() {
 
   const row = (id: string, title: string, sub: string, snippet?: string) => {
     const read = Boolean(progress.sopsRead[id])
-    const locked = !sopUnlocked(learningPath, progress, id)
+    const locked = false
     const inner = (
       <>
         <div>

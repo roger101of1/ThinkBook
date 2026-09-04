@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { getSop, learningPath, moduleForSop } from '../lib/content'
-import { sopUnlocked } from '../lib/progress'
+import { getSop, moduleForSop } from '../lib/content'
 import { store, useProgress } from '../lib/store'
 
 export default function SopPage() {
@@ -25,17 +24,6 @@ export default function SopPage() {
   }, [sopId])
 
   if (!sop) return <div className="empty">SOP not found.</div>
-
-  if (!sopUnlocked(learningPath, progress, sopId)) {
-    return (
-      <div className="panel pad">
-        <div className="eyebrow">Locked</div>
-        <h1 className="display" style={{ fontSize: 24, margin: '8px 0' }}>{sop.title}</h1>
-        <p className="muted">Finish the previous module's check to open this SOP.</p>
-        <Link to="/" className="btn">← My training</Link>
-      </div>
-    )
-  }
 
   const module = moduleForSop(sopId)
   const readAt = progress.sopsRead[sopId]

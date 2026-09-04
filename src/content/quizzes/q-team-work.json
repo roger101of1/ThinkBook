@@ -1,0 +1,43 @@
+{
+  "id": "q-team-work",
+  "title": "Team Work Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "team-work-1",
+      "sopId": "prepare-for-daily-huddle",
+      "prompt": "It is 8:15 am on a Tuesday and you are in a meeting with a member that is running long. What do you do about the Daily Huddle, and when does it start and end?",
+      "modelAnswer": "The Daily Huddle starts promptly at 8:20 am and ends at 8:30 am, and being on time is how we respect each other's time. Invite the person you are meeting with to join the Daily Huddle and explain that it is the most important meeting of the day, our one time together, because togetherness is a core value.",
+      "keyPoints": [
+        "Starts promptly at 8:20 am",
+        "Ends at 8:30 am",
+        "Invite the person you are meeting with to the huddle",
+        "Explain it is the most important meeting of the day; togetherness is a core value"
+      ]
+    },
+    {
+      "id": "team-work-2",
+      "sopId": "prepare-for-daily-huddle",
+      "prompt": "Name the four rounds of the Daily Huddle in order, and say how long each person has to share.",
+      "modelAnswer": "Each person has 60 seconds, timed by a designated person. The four rounds are: 1) Wins, something significant from the last business day that moved the company forward; 2) Speed bumps, what is stopping you or what customers are having issues with; 3) Gratitude, appreciation for someone on or off the team; 4) WOD or Intention Word, one word for how you will focus on your SMART goals (not the weather).",
+      "keyPoints": [
+        "60 seconds per person, timed by a designated person",
+        "1 Wins",
+        "2 Speed bumps",
+        "3 Gratitude",
+        "4 WOD / Intention Word"
+      ]
+    },
+    {
+      "id": "team-work-3",
+      "sopId": "prepare-for-daily-huddle",
+      "prompt": "A teammate mentions a speed bump you have a question about. What is the etiquette during the huddle, and where can the speed bump be discussed?",
+      "modelAnswer": "Do not interrupt and do not ask clarifying questions until everyone has shared. After the call there is an optional parking lot to discuss speed bumps; if a speed bump is outside your expertise you can drop off.",
+      "keyPoints": [
+        "Do not interrupt or ask clarifying questions until everyone has shared",
+        "Optional parking lot after the call for speed bumps",
+        "You can drop off if the speed bump is outside your expertise"
+      ]
+    }
+  ]
+}

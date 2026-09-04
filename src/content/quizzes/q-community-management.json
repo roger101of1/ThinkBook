@@ -1,0 +1,17 @@
+{
+  "id": "q-community-management",
+  "title": "Community Management Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "community-management-1",
+      "sopId": "seattle-tech-week",
+      "prompt": "A Seattle member asks when Seattle Tech Week runs this year. What dates do you give them?",
+      "modelAnswer": "Seattle Tech Week runs 7/27 to 7/31, the week of July 28. Plan Seattle (SEA) community activity around those dates.",
+      "keyPoints": [
+        "7/27 to 7/31",
+        "The week of July 28"
+      ]
+    }
+  ]
+}

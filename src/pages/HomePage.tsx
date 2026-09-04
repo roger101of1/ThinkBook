@@ -50,7 +50,7 @@ export default function HomePage() {
       </ol>
 
       <p className="note" style={{ marginTop: 8 }}>
-        Pass mark is {learningPath.defaultPassScore}% (the safety module asks for more). You can retake a check as often as you like — the point is to know the material.
+        Pass mark is {learningPath.defaultPassScore}%. SOPs are always open to read; each module check unlocks when you pass the one before it. Retake as often as you like — the point is to know the material.
       </p>
     </>
   )
@@ -111,7 +111,7 @@ function ModuleStep({ state, isCurrent, sopsRead }: { state: ModuleState; isCurr
             return (
               <li key={id}>
                 <span className={`dot ${read ? 'done' : ''}`} style={{ animationDelay: `${index * STAGGER_BAR + k * STAGGER_DOT * 3}ms` }} />
-                {locked ? <span className="muted">{sop?.title ?? id}</span> : <Link to={`/sop/${id}`}>{sop?.title ?? id}</Link>}
+                <Link to={`/sop/${id}`}>{sop?.title ?? id}</Link>
                 <span className="meta num">{sop?.readMinutes ?? '–'} min</span>
               </li>
             )

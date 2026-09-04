@@ -2,37 +2,156 @@
   "id": "hospitality-coordinator",
   "role": "Hospitality Coordinator",
   "title": "Hospitality Coordinator Onboarding",
-  "description": "Everything a new Hospitality Coordinator needs to know, in the order you need to know it. Read each SOP, then pass the module check to unlock the next module.",
+  "description": "Everything a new Hospitality Coordinator at Thinkspace needs to know, in the order the team trains it. Read each SOP, then pass the module check to unlock the next check. The Library is always open as your reference.",
   "defaultPassScore": 80,
   "completeInOrder": true,
   "modules": [
     {
-      "id": "m1-foundations",
-      "title": "Module 1 · Role & Foundations",
-      "description": "What the job is, who you work with, and how we communicate.",
-      "sops": ["role-overview", "communication-standards"],
-      "quiz": "q-m1"
+      "id": "90-day-goals",
+      "title": "90 Day Goals",
+      "description": "What the first 90 days are for, what a normal day looks like, and where every SOP lives.",
+      "sops": [
+        "google-reviews",
+        "normal-day-schedule-location-coordinator",
+        "operational-directory"
+      ],
+      "quiz": "q-90-day-goals"
     },
     {
-      "id": "m2-arrival",
-      "title": "Module 2 · Guest Arrival & Check-in",
-      "description": "The arrival experience from pre-arrival prep to handing over the key.",
-      "sops": ["guest-arrival", "room-readiness"],
-      "quiz": "q-m2"
+      "id": "day-0",
+      "title": "Day 0",
+      "description": "Logins, time tracking, PTO, Kube basics, and the list of things you will be trained on.",
+      "sops": [
+        "door-access-seattle",
+        "adp-time-tracking",
+        "kube",
+        "items-to-be-trained-on",
+        "time-off-pto"
+      ],
+      "quiz": "q-day-0"
     },
     {
-      "id": "m3-requests",
-      "title": "Module 3 · Requests, Issues & Recovery",
-      "description": "Handling day-to-day requests and turning complaints into loyalty.",
-      "sops": ["guest-requests", "complaint-handling"],
-      "quiz": "q-m3"
+      "id": "kube-contracts",
+      "title": "Kube \u00b7 Contracts",
+      "description": "Creating, pricing, sending and activating a Virtual Office or Coworking contract in Yardi Kube (from the printed manual).",
+      "sops": [
+        "kube-virtual-office-coworking-contracts"
+      ],
+      "quiz": "q-kube-contracts"
     },
     {
-      "id": "m4-safety",
-      "title": "Module 4 · Safety & Emergencies",
-      "description": "Incident reporting and what to do when something goes wrong.",
-      "sops": ["incident-reporting", "emergency-procedures"],
-      "quiz": "q-m4"
+      "id": "day-1",
+      "title": "Day 1",
+      "description": "Your tools, the Culture Book, the Employee Handbook, and a tour of the building.",
+      "sops": [
+        "employee-id-w9-auto-deposit-payroll",
+        "laptop-bookmarks-bar",
+        "lunch-with-a-team-member",
+        "culture-book",
+        "employee-handbook",
+        "conference-room-amenities",
+        "tour-the-building",
+        "arlo-cameras",
+        "hvac-ivu-thinkspace-com"
+      ],
+      "quiz": "q-day-1"
+    },
+    {
+      "id": "hospitality",
+      "title": "Hospitality",
+      "description": "Keeping the space guest-ready and answering members with the canned responses.",
+      "sops": [
+        "keeps-property-tidy-reset-and-organized",
+        "using-canned-responses"
+      ],
+      "quiz": "q-hospitality"
+    },
+    {
+      "id": "operations",
+      "title": "Operations",
+      "description": "Mail, dogs, printing, door codes, parking, and the day-to-day systems of the front desk.",
+      "sops": [
+        "mail-files-and-sorting-system",
+        "mail-putting-away",
+        "dog-policy",
+        "printwithme-sea",
+        "stamps-com",
+        "door-locks-and-locked-out-code",
+        "parking-rules-and-regulations",
+        "locking-bicycle-storage"
+      ],
+      "quiz": "q-operations"
+    },
+    {
+      "id": "team-work",
+      "title": "Team Work",
+      "description": "How we meet: the Daily Huddle, and making things together.",
+      "sops": [
+        "cricut-making-t-shirts-and-company-logos",
+        "prepare-for-daily-huddle"
+      ],
+      "quiz": "q-team-work"
+    },
+    {
+      "id": "management",
+      "title": "Management",
+      "description": "1:1s, the opening checklist, Allstate Passports, what we fix ourselves, and where things are stored.",
+      "sops": [
+        "one-on-one-with-manager",
+        "meeting-format-for-one-on-ones",
+        "review-opening-checklist",
+        "allstate-passports",
+        "things-we-can-fix-ourselves",
+        "inventory-where-we-store-things"
+      ],
+      "quiz": "q-management"
+    },
+    {
+      "id": "property-management",
+      "title": "Property Management",
+      "description": "What property management fixes, who to call, ViewGlass, and vendors.",
+      "sops": [
+        "items-property-management-must-be-called-to-fix",
+        "property-management-contacts",
+        "gender-neutral-bathroom-maintenance-training",
+        "viewglass-for-seattle-crosstraining",
+        "vendor-spreadsheet"
+      ],
+      "quiz": "q-property-management"
+    },
+    {
+      "id": "technical-skills",
+      "title": "Technical Skills",
+      "description": "Printing, phones, Meeting Owl, outages, printer drivers, and the callbox.",
+      "sops": [
+        "troubleshooting-internet-issues",
+        "printwithme",
+        "voip-phone-basics",
+        "meeting-owl",
+        "power-and-internet-troubleshooting",
+        "installing-printer-drivers",
+        "liftmaster-capxs-red"
+      ],
+      "quiz": "q-technical-skills"
+    },
+    {
+      "id": "community-management",
+      "title": "Community Management",
+      "description": "Events and community moments.",
+      "sops": [
+        "seattle-tech-week"
+      ],
+      "quiz": "q-community-management"
+    },
+    {
+      "id": "personal-development",
+      "title": "Personal Development",
+      "description": "Two assessments to understand how you work.",
+      "sops": [
+        "via-character",
+        "disc-test"
+      ],
+      "quiz": "q-personal-development"
     }
   ]
 }

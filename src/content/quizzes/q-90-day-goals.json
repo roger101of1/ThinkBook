@@ -1,0 +1,78 @@
+{
+  "id": "q-90-day-goals",
+  "title": "90 Day Goals Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "90-day-goals-1",
+      "sopId": "google-reviews",
+      "prompt": "A member just told you they loved their first month and asks if there is anything they can do to help Thinkspace. You think of Google Reviews. What is the rule, and what do you say?",
+      "modelAnswer": "We are not allowed to ask anyone to leave a review, so you must not suggest a Google Review, hand them a link or QR code, or coach wording. Thank them warmly. If they later leave a review on their own that is fine, but you never ask for it.",
+      "keyPoints": [
+        "We are not allowed to ask anyone to leave a review",
+        "Do not hand out links, cards or QR codes requesting a review",
+        "You may thank someone who reviews unprompted, but never solicit"
+      ]
+    },
+    {
+      "id": "90-day-goals-2",
+      "sopId": "normal-day-schedule-location-coordinator",
+      "prompt": "Walk through the first hour of a normal Location Coordinator day, with times.",
+      "modelAnswer": "At 7:45am you log in (clock in on ADP) via the website. Then you run the Opening checklist, which takes 10 to 15 minutes. At 8:20am you join the Daily Huddle, which runs 8:20 to 8:30 and starts promptly. You also log breaks and lunch in ADP via cell phone or website as the day goes on.",
+      "keyPoints": [
+        "7:45am log in via the website (ADP)",
+        "Opening checklist takes 10 to 15 minutes",
+        "Daily Huddle at 8:20am (8:20 to 8:30)",
+        "Breaks and lunch logged in ADP by cell phone or website"
+      ]
+    },
+    {
+      "id": "90-day-goals-3",
+      "sopId": "normal-day-schedule-location-coordinator",
+      "prompt": "Describe the Daily Huddle format: the four shares in order, the time limit per person, and two of the ground rules.",
+      "modelAnswer": "The four shares are 1 Wins, 2 Speed bumps, 3 Gratitude, 4 WOD / Intention Word. Each person gets 60 seconds and a designated person is the timer. Ground rules include showing up on time, coming prepared, not interrupting or asking clarifying questions until everyone has shared, and an optional parking lot afterwards for speed bumps. The intention word is about your focus for the day, not the weather.",
+      "keyPoints": [
+        "Order: Wins, Speed bumps, Gratitude, WOD / Intention Word",
+        "60 seconds per person, a designated timer",
+        "No interrupting or clarifying questions until everyone has shared",
+        "Optional parking lot after the call for speed bumps",
+        "Intention word is not the weather"
+      ]
+    },
+    {
+      "id": "90-day-goals-4",
+      "sopId": "normal-day-schedule-location-coordinator",
+      "prompt": "How much time is blocked for mail each week, and what do you need to prepare before you leave each day?",
+      "modelAnswer": "Mail sorting takes about 60 minutes daily, and mail forwarding takes 60 to 90 minutes on Thursdays. Before you leave, run the Closing checklist (10 to 15 minutes) and write up your Daily Huddle notes for the next day: Wins, Speed Bumps, Gratitude and Word of the Day.",
+      "keyPoints": [
+        "Mail sorting 60 minutes",
+        "Mail forwarding 60 to 90 minutes on Thursday",
+        "Write next day's huddle notes: Wins, Speed Bumps, Gratitude, Word of the Day",
+        "Closing checklist 10 to 15 minutes"
+      ]
+    },
+    {
+      "id": "90-day-goals-5",
+      "sopId": "operational-directory",
+      "prompt": "Explain what the Operational Directory is, name its three tabs, and say which one you should never use.",
+      "modelAnswer": "The Operational Directory is a Google Sheet that indexes every SOP and reference document for both Redmond and Seattle (roughly 300 rows). Its tabs are the current Operational Directory for Redmond & Seattle, the Operational Directory Seattle numbered index, and the OLD Redmond directory. The OLD tab is labelled 'DO NOT USE ME I AM OLD' and should be ignored except as history.",
+      "keyPoints": [
+        "A Google Sheet indexing all SOPs for Redmond and Seattle (about 300 rows)",
+        "Tabs: current Redmond & Seattle, Seattle numbered index, OLD Redmond directory",
+        "Never use the OLD tab"
+      ]
+    },
+    {
+      "id": "90-day-goals-6",
+      "sopId": "operational-directory",
+      "prompt": "A member asks how to refund a security deposit in Yardi, and you need the SOP. Describe how you find it in the Operational Directory, and what you do if you notice a vendor login in a nearby row.",
+      "modelAnswer": "Open the sheet and use the current Redmond & Seattle tab. Find the section first: refund SOPs live under Move-ins & Move-outs (Refund Security Deposit in Yardi) or Accounting (How to Refund a Deposit). If unsure, use Ctrl/Cmd + F to search a keyword like 'refund', then click the row's link. If you see a login such as PrintWithMe, Stamps.com or FedEx in a row, leave it there and never copy it anywhere; use 1Password.",
+      "keyPoints": [
+        "Use the current Redmond & Seattle tab",
+        "Find the section (Move-ins & Move-outs or Accounting), then the row",
+        "Ctrl/Cmd + F to search a keyword",
+        "Never copy credentials from the sheet; use 1Password"
+      ]
+    }
+  ]
+}

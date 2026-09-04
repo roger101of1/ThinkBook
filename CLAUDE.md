@@ -1,4 +1,4 @@
-# SOP Academy — guide for AI agents and humans
+# ThinkBook — guide for AI agents and humans
 
 Internal training app for Thinkspace, modeled on Trainual and scoped to a
 single role: **Hospitality Coordinator** (1–2 trainees at a time). Trainees read
@@ -76,8 +76,9 @@ docs/
   "unlocked" flags to the data.
 - **No secrets in the browser bundle.** When Grok is wired up, calls go through
   a small server/edge function. An API key in `VITE_*` env is a bug.
-- Sample SOP content is clearly marked `> **Sample content.**` — remove that
-  line only when replacing with real Operational Directory text.
+- Content now comes from the Trello "New Hire Training" board + linked Google
+  Docs (see docs/plans/2026-09-04-trello-import.md). Secrets never enter the
+  repo: passwords, door/keypad/lockbox/callbox/promo codes → "see 1Password".
 
 ## Product decisions already made (don't re-litigate without a plan)
 
@@ -96,5 +97,5 @@ docs/
 - Hosting/auth: GitHub Pages is public. Before real SOPs land, either add an
   auth layer or move to a host that supports Google SSO (Cloudflare Pages /
   Vercel). See `docs/brainstorms/sop-academy-requirements.md`.
-- Should the SOP Library ignore module locking (act as a reference manual
-  after onboarding)? Currently it respects locks.
+- (Decided 2026-09-04) SOPs are always readable; only module checks lock. The
+  Library is the reference manual.

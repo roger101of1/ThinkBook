@@ -1,0 +1,83 @@
+{
+  "id": "q-management",
+  "title": "Management Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "management-1",
+      "sopId": "one-on-one-with-manager",
+      "prompt": "When are your scheduled check-ins with your manager, and how did they get onto your calendar?",
+      "modelAnswer": "Your manager has already added calendar invites for check-ins at your 30, 60 and 90 day marks. Accept the invites so they stay on your calendar, and prepare for each using the 1:1 Trello format.",
+      "keyPoints": [
+        "Check-ins at 30, 60 and 90 days",
+        "Your manager already added the calendar invites"
+      ]
+    },
+    {
+      "id": "management-2",
+      "sopId": "meeting-format-for-one-on-ones",
+      "prompt": "Describe how a 1:1 is organized in Trello: the lists on the board and how agenda cards are named.",
+      "modelAnswer": "Every 1:1 is organized in Trello with four lists: Agenda, Active, Completed and Parking Lot. Agenda cards are named with the meeting date in the 2025-mm-dd format so the list stays organized and chronological.",
+      "keyPoints": [
+        "Lists: Agenda, Active, Completed, Parking Lot",
+        "Agenda dates use the 2025-mm-dd format",
+        "The date format keeps things organized and chronological"
+      ]
+    },
+    {
+      "id": "management-3",
+      "sopId": "allstate-passports",
+      "prompt": "A client of Allstate Passports comes to the front desk to drop off paperwork. What do you give them and where is it kept?",
+      "modelAnswer": "Give them a large manilla envelope. The envelopes are stored at the front desk, top drawer, far left side (if you are facing the elevator, where KB sits).",
+      "keyPoints": [
+        "Give them a large manilla envelope",
+        "Front desk, top drawer, far left side",
+        "Facing the elevator, where KB sits"
+      ]
+    },
+    {
+      "id": "management-4",
+      "sopId": "allstate-passports",
+      "prompt": "A walk-in asks you how long a passport renewal takes and whether you can help. How do you respond?",
+      "modelAnswer": "Do not answer specific passport or process questions. Give them Albina's number (the owner; it is on a sticker at the front desk) so they can reach out to her directly. Let them know they can go to Staples for a non-expedited passport application and photos, and that if they need an expedited passport, that is exactly what Allstate Passports specializes in.",
+      "keyPoints": [
+        "Do not answer specific passport or process questions",
+        "Direct them to Albina, the owner; her number is on a sticker at the front desk",
+        "Staples for a non-expedited application and photos",
+        "Expedited processing is what Allstate Passports specializes in"
+      ]
+    },
+    {
+      "id": "management-5",
+      "sopId": "things-we-can-fix-ourselves",
+      "prompt": "A toilet is running and needs its shut-off valve closed. On which floor can you handle that yourself, and what else is on the fix-it-ourselves list?",
+      "modelAnswer": "You can handle the toilet shut-off valve on Floor 2 only. The other item we fix ourselves is removing marks on walls. Anything else goes to property management or a vendor.",
+      "keyPoints": [
+        "Toilet shut-off valve: Floor 2 only",
+        "Remove marks on walls"
+      ]
+    },
+    {
+      "id": "management-6",
+      "sopId": "inventory-where-we-store-things",
+      "prompt": "A large meeting needs extra chairs and the coffee station is empty. Where do you find each?",
+      "modelAnswer": "Extra plastic conference room chairs are stored in the closet by office 114 on floor 1. Coffee supplies are in the copy area and the IT Server Room.",
+      "keyPoints": [
+        "Chairs: closet by office 114 on floor 1",
+        "Coffee supplies: copy area",
+        "Coffee supplies: IT Server Room"
+      ]
+    },
+    {
+      "id": "management-7",
+      "sopId": "review-opening-checklist",
+      "prompt": "What is the Opening and Closing Checklist for, and how should you use it in your first week?",
+      "modelAnswer": "It is the daily run sheet for the front desk: the steps to open in the morning and close at the end of the day. Read the linked document end to end, then walk through the opening steps with your manager or trainer on your first opening shift and the closing steps on your first closing shift.",
+      "keyPoints": [
+        "Daily steps for opening and closing the space",
+        "Read the linked checklist end to end",
+        "Walk through opening and closing with your manager or trainer on your first shifts"
+      ]
+    }
+  ]
+}

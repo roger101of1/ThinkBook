@@ -1,0 +1,153 @@
+{
+  "id": "q-day-1",
+  "title": "Day 1 Check",
+  "shuffle": true,
+  "questions": [
+    {
+      "id": "day-1-1",
+      "sopId": "employee-handbook",
+      "prompt": "You wake up sick and know you will not make your 7:45am start. What does the handbook require you to do, and what happens if you do nothing?",
+      "modelAnswer": "If you cannot report to work, or will be more than five minutes late, you must personally call your supervisor as far in advance of your start time as possible. Failure to call or notify can lead to discipline up to and including termination, and a no call, no show may be treated as job abandonment and your employment terminated.",
+      "keyPoints": [
+        "Personally call your supervisor as far in advance as possible",
+        "Applies if late by more than five minutes or absent",
+        "No call, no show = job abandonment and termination"
+      ]
+    },
+    {
+      "id": "day-1-2",
+      "sopId": "employee-handbook",
+      "prompt": "Explain the PTO rules for a new full-time employee: when it accrues, how much per pay period, when you can first use it, how much carries over, and how far ahead you must request it.",
+      "modelAnswer": "PTO accrues for anyone hired to work at least 20 hours a week. Full-time employees accrue 5 hours per bi-weekly pay period (part-time 2.5). PTO accrues during the 90-day orientation but cannot be taken until it ends. A maximum of 40 hours (5 days) carries over past December 31. Request PTO at least two weeks in advance, and any time off between November 20 and December 31 must be requested in writing before October 15. Unused PTO is not paid out when you leave.",
+      "keyPoints": [
+        "5 hours per bi-weekly period full-time (2.5 part-time); needs 20+ hours/week",
+        "Cannot be taken during the first 90 days",
+        "Max 40 hours (5 days) carries past December 31",
+        "Two weeks notice; Nov 20 to Dec 31 requests in writing before Oct 15",
+        "Unused PTO is not paid out at termination"
+      ]
+    },
+    {
+      "id": "day-1-3",
+      "sopId": "employee-handbook",
+      "prompt": "Describe how pay works at Thinkspace: pay period, pay dates, time clock deadline, and the rules on overtime.",
+      "modelAnswer": "Pay is bi-weekly with paychecks issued on the 5th and 20th of the month. Non-exempt employees record actual hours on the time clock in real time, and updates are due to HR before 8:00am on the Monday before payday. All overtime must have prior approval from management; it is paid per state and federal law, and PTO hours do not count as hours worked when calculating overtime.",
+      "keyPoints": [
+        "Bi-weekly; paychecks on the 5th and 20th",
+        "Time clock updates due before 8:00am Monday before payday",
+        "Overtime requires prior management approval",
+        "PTO hours are not hours worked for overtime"
+      ]
+    },
+    {
+      "id": "day-1-4",
+      "sopId": "employee-handbook",
+      "prompt": "A member collapses in the lounge. What does the Medical Emergency Policy tell you to do, and what must you never do?",
+      "modelAnswer": "Try to contact the people on the person's Emergency Contact List, in the order provided. If none can be reached in a timely manner, or the situation appears urgent or life-threatening, call 911 immediately. You must never transport the person in your personal vehicle; emergency transport is only by trained professionals such as EMTs or an ambulance.",
+      "keyPoints": [
+        "Contact the Emergency Contact List in the order provided",
+        "Call 911 immediately if contacts cannot be reached or it is urgent or life-threatening",
+        "Never transport the person in a personal vehicle; EMTs or ambulance only"
+      ]
+    },
+    {
+      "id": "day-1-5",
+      "sopId": "employee-handbook",
+      "prompt": "A reporter calls the front desk asking about Thinkspace's expansion plans, and the same day a friend asks you to install a free file-sharing app on the work laptop. What does the handbook say about each?",
+      "modelAnswer": "Employees may not issue statements to the media (TV, radio, magazine or newspaper) about Thinkspace business unless expressly authorized; refer the reporter to the CEO. Software must be approved before installation, be fully licensed and be for business purposes, and downloading software from the Internet is prohibited unless expressly approved by the Systems Administrator. Also, you are personally accountable for everything done under your passwords, and there is no expectation of privacy on company systems.",
+      "keyPoints": [
+        "No statements to the media unless authorized; refer to the CEO",
+        "Software must be approved before installation and be licensed and business-related",
+        "No downloading software without Systems Administrator approval",
+        "Personally accountable for actions under your passwords; no expectation of privacy"
+      ]
+    },
+    {
+      "id": "day-1-6",
+      "sopId": "employee-handbook",
+      "prompt": "Explain the introductory period, health insurance timing, and what to do about a work injury.",
+      "modelAnswer": "The first 90 days are an introductory period with a formal review near the end; the company can end employment or extend the period up to another 90 days. Employees working at least 32 to 40 hours a week can enroll in medical, dental, vision and life benefits after 30 days of continuous employment, with coverage starting the first of the month after 30 days, and elections must be made within the first 30 days. Any work injury or accident, no matter how minor, must be reported immediately to your supervisor; tell the treating doctor it is job-related, complete an Accident Report with a manager, and get a doctor's authorization before returning to work.",
+      "keyPoints": [
+        "90-day introductory period, extendable up to another 90 days",
+        "Benefits enrollment after 30 days; coverage starts 1st of the month after 30 days",
+        "Report every accident immediately to your supervisor",
+        "Doctor's authorization required before returning to work; Accident Report with a manager"
+      ]
+    },
+    {
+      "id": "day-1-7",
+      "sopId": "culture-book",
+      "prompt": "State Thinkspace's core purpose and name the five core values plus the three values 'from our roots'.",
+      "modelAnswer": "The core purpose is: we strengthen the social fabric around entrepreneurs and contribute to their success. The five core values are Massive Heart, Beginner Mindset, Harmony, Epic Journey and Togetherness. From our roots: Goal-Crushing Attitude, Appetite for Learning and Gratitude.",
+      "keyPoints": [
+        "We strengthen the social fabric around entrepreneurs and contribute to their success",
+        "Massive Heart, Beginner Mindset, Harmony, Epic Journey, Togetherness",
+        "Goal-Crushing Attitude, Appetite for Learning, Gratitude"
+      ]
+    },
+    {
+      "id": "day-1-8",
+      "sopId": "culture-book",
+      "prompt": "A coworker pulls you aside and says 'Can you believe what leadership decided? It's stupid.' Using the Culture Book, explain why this is gossip and the three steps you take.",
+      "modelAnswer": "It is gossip because it is talking about someone instead of to them, venting to a third party rather than bringing the question to leadership directly. The co-committed alternative is 'I'd like to understand the decision, could we talk about it?' said to leadership. The three steps are: name it ('Sounds like gossip'), shut it down ('Let's stick to our agreement: direct conversation'), and offer help ('How can I support you in bringing it up to them?'). Violating the Zero Gossip policy is a 'no longer a fit' standard.",
+      "keyPoints": [
+        "Gossip = talking about someone instead of to them",
+        "Name it: 'Sounds like gossip'",
+        "Shut it down: 'Let's stick to our agreement: direct conversation'",
+        "Offer help: 'How can I support you in bringing it up to them?'",
+        "Zero Gossip policy violation is a no-longer-a-fit standard"
+      ]
+    },
+    {
+      "id": "day-1-9",
+      "sopId": "culture-book",
+      "prompt": "Explain the RLFH feedback framework, including the three ways someone can choose to receive feedback.",
+      "modelAnswer": "RLFH stands for Reinforcement Learning from Humans. First get consent: 'Can I provide you with some feedback?' Then ask the method: 'How would you best like to receive the feedback?' offering Coach (you have the inner wisdom, I'll ask questions to draw it out), Mentor (I'll share experiences from similar situations, take what resonates) or Teacher (here are the steps 1, 2, 3). Another way is to ask the person to put on their beginner's-mindset hat.",
+      "keyPoints": [
+        "Step 1 consent: 'Can I provide you with some feedback?'",
+        "Step 2 method: ask how they want to receive it",
+        "Coach = ask questions to draw out their wisdom",
+        "Mentor = share similar experiences, take what resonates",
+        "Teacher = give the steps 1, 2, 3"
+      ]
+    },
+    {
+      "id": "day-1-10",
+      "sopId": "culture-book",
+      "prompt": "What does co-commitment mean at Thinkspace, and what does the Culture Book say about working remotely?",
+      "modelAnswer": "Co-commitment means each person takes 100% responsibility for their own experience, growth and impact, supporting each other without controlling, rescuing, blaming or seeking approval. We are building a race crew, not a rescue crew, and we are responsible to each other, not for each other. Thinkspace is a place-based company, so working physically from our spaces is required, not optional; remote work is limited and must be approved, and refusing to work on-site is a 'no longer a fit' standard.",
+      "keyPoints": [
+        "100% responsibility for your own experience, growth and impact",
+        "Race crew, not a rescue crew; responsible to, not for, each other",
+        "Working on-site is required, not optional",
+        "Remote work is limited and must be approved"
+      ]
+    },
+    {
+      "id": "day-1-11",
+      "sopId": "culture-book",
+      "prompt": "Describe the 90-day onboarding schedule from the Culture Book, and list three of the 'no longer a fit' standards under Work Performance and Responsibility.",
+      "modelAnswer": "The schedule is a Welcome Meeting, weekly 30-minute one-on-ones (your meeting, for giving and receiving feedback), a review of the training schedule, a 30/60/90-day review that recaps the Expectation Meeting, and a 6-month review that recaps it again. Work performance standards include failing to meet clearly defined goals, leaving your post unattended without approval beyond scheduled breaks or lunch, failing to notify the team when taking unexpected time off or leaving early, and repeated lateness, absenteeism or abuse of PTO.",
+      "keyPoints": [
+        "Welcome Meeting, weekly 30-minute one-on-ones, review training schedule",
+        "30/60/90-day review and 6-month review recap the Expectation Meeting",
+        "Leaving your post unattended without approval beyond breaks or lunch",
+        "Failing to notify the team about unexpected time off or leaving early",
+        "Repeated lateness, absenteeism or abuse of PTO"
+      ]
+    },
+    {
+      "id": "day-1-12",
+      "sopId": "laptop-bookmarks-bar",
+      "prompt": "Match these tools to their purpose: Deskworks, Yardi Kube, PilotoMail, Humanity, Brivo, Pipedrive, Skynet. Then say where every login for them lives and which two tools run on which internet provider.",
+      "modelAnswer": "Deskworks is the member portal and billing; Yardi Kube is contracts; PilotoMail is virtual-office mail; Humanity is scheduling; Brivo is door access; Pipedrive is the CRM; Skynet is the front desk voicemail portal. All logins live in 1Password and are never written anywhere else. Arlo cameras run on Ziply and the HVAC site IVU.Thinkspace.com runs on Comcast, so check that provider's outage map if one will not load.",
+      "keyPoints": [
+        "Deskworks = member portal/billing; Yardi Kube = contracts",
+        "PilotoMail = virtual-office mail; Humanity = scheduling",
+        "Brivo = door access; Pipedrive = CRM; Skynet = front desk voicemail",
+        "All logins live in 1Password",
+        "Arlo runs on Ziply; HVAC IVU runs on Comcast"
+      ]
+    }
+  ]
+}
