@@ -1,6 +1,6 @@
 {
   "id": "q-kube-contracts",
-  "title": "Check · Kube contracts (draft, from page 1)",
+  "title": "Check · Kube contracts",
   "shuffle": true,
   "questions": [
     {
@@ -8,8 +8,15 @@
       "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
       "prompt": "You searched for a company in Kube and it doesn't appear under Company, Member, or Lead. What do you do first?",
-      "choices": ["Click Add User right away", "Tick “Include Archived” and search again", "Create the contract without a company", "Ask the Duty Manager"],
-      "answer": [1],
+      "choices": [
+        "Click Add User right away",
+        "Tick “Include Archived” and search again",
+        "Create the contract without a company",
+        "Ask the Duty Manager"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Kube contracts → Step 1: check Include Archived before adding a new user."
     },
     {
@@ -17,8 +24,15 @@
       "type": "single",
       "sopId": "kube-virtual-office-coworking-contracts",
       "prompt": "Which field controls the proration of the first month's rent and when booking credits activate?",
-      "choices": ["Contract Name", "Move-in Date", "Term Type", "Renewal Price"],
-      "answer": [1],
+      "choices": [
+        "Contract Name",
+        "Move-in Date",
+        "Term Type",
+        "Renewal Price"
+      ],
+      "answer": [
+        1
+      ],
       "explanation": "Kube contracts → Step 2: the Move-in Date drives both."
     },
     {
@@ -26,8 +40,18 @@
       "type": "multi",
       "sopId": "kube-virtual-office-coworking-contracts",
       "prompt": "Which settings are correct on the Terms & Company page? (Select all that apply)",
-      "choices": ["Term Type: Fixed Term", "Auto Renew: Off", "Contract Term: 6 or 12", "Renewal Price: Custom Pricing, 4.00% increase", "Renewal Price: Market Rate"],
-      "answer": [0, 2, 3],
+      "choices": [
+        "Term Type: Fixed Term",
+        "Auto Renew: Off",
+        "Contract Term: 6 or 12",
+        "Renewal Price: Custom Pricing, 4.00% increase",
+        "Renewal Price: Market Rate"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
       "explanation": "Kube contracts → Step 2 table. Auto Renew must be On."
     },
     {
@@ -35,7 +59,9 @@
       "type": "boolean",
       "sopId": "kube-virtual-office-coworking-contracts",
       "prompt": "If “Bill Full Contract Cost at Start of Term” was enabled by mistake on an active contract, you can turn it off with an amendment.",
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "Kube contracts → Warning: it cannot be disabled by amendment; the contract must be terminated and recreated."
     },
     {
@@ -43,8 +69,102 @@
       "type": "boolean",
       "sopId": "kube-virtual-office-coworking-contracts",
       "prompt": "After you click Save & Continue, changes on the following pages are saved automatically.",
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Kube contracts → Note under Save & Continue."
+    },
+    {
+      "id": "kube-6",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "You go back and change the Move-in Date on the Terms & Company page after the contract was first saved. What must you do?",
+      "choices": [
+        "Nothing — every page auto-saves",
+        "Click Save & Continue again",
+        "Terminate and recreate the contract",
+        "Email support"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Step 2 note: changes on Terms & Company need Save & Continue to apply."
+    },
+    {
+      "id": "kube-7",
+      "type": "boolean",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "For a contract at the Seattle property you should add the “4 Conference Room Hours/Month” booking credit.",
+      "answer": [
+        1
+      ],
+      "explanation": "Step 4: Seattle has no booking credits — skip that step."
+    },
+    {
+      "id": "kube-8",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "Which method of communication can be used to activate a contract right now?",
+      "choices": [
+        "ySign only",
+        "Manual only",
+        "Either",
+        "Neither — activation is done by Yardi"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Step 6: Manual Method of Communication ONLY for now."
+    },
+    {
+      "id": "kube-9",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "On the Activate screen no charges are listed. What does that mean?",
+      "choices": [
+        "The contract is broken",
+        "The Move-in Date is after the next Monthly Posting date; Kube adds the charges then",
+        "The spaces weren't saved",
+        "The member has no payment method"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Step 6, note under the checkbox step."
+    },
+    {
+      "id": "kube-10",
+      "type": "single",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "What does the Due Date on the Activate screen control?",
+      "choices": [
+        "When the contract expires",
+        "When the first automatic payment attempt is made (if auto-pay is on)",
+        "When booking credits activate",
+        "When the agreement is emailed"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Step 6 reminder."
+    },
+    {
+      "id": "kube-11",
+      "type": "multi",
+      "sopId": "kube-virtual-office-coworking-contracts",
+      "prompt": "Which are steps of the Manual signing method? (Select all that apply)",
+      "choices": [
+        "Upload the hand-signed agreement via Signed Document Upload",
+        "Click Send to start the ySign timeline",
+        "Click Email to send the agreement to the member",
+        "Click Activate in the upper-right corner"
+      ],
+      "answer": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "Step 5 → Manual. “Send” belongs to the ySign path."
     }
   ]
 }
